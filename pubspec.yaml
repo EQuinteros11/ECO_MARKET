@@ -66,6 +66,7 @@ flutter:
     - assets/img/tipoCuenta.png
     - assets/img/inicioSesionVendedor.png
     - assets/img/creacionCuentaCliente.png
+    - assets/img/creacionCuentaVendedor.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

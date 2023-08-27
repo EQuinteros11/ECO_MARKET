@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:uno/seleccion_creacion_tipo_cuenta.dart';
+import 'package:uno/vista_principal.dart';
 
-import 'app.dart';
+import 'inicio_sesion_cliente.dart';
+import 'inicio_sesion_vendedor.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,10 +14,15 @@ class MyApp extends StatelessWidget{
   Widget build(BuildContext context) {
       return MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Login',
-        home: MyAppForm(
-
-        ),
+        title: 'vistaPrincipal',
+        initialRoute: "vistaPrincipal",
+        routes: <String, WidgetBuilder>{
+          "vistaPrincipal": (context) => VistaPrincipal(),
+          "creacionTipoCuenta": (context) => Creacion_Cuenta(),
+          "creacionCuenta": (context) => Creacion_Cuenta(),
+          "inicioSesionVendedor": (context) => InicioSesionVendedor(),
+          "InicioSesionCliente": (context) => MyAppForm(),
+        },
       );
   }
 

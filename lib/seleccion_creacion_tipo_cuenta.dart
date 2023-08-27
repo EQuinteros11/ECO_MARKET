@@ -53,6 +53,7 @@ class _Creacion_CuentaState extends State<Creacion_Cuenta> {
                     children: <Widget>[
                       Container(
                         margin: const EdgeInsets.only(top: 20),
+                        padding: const EdgeInsets.only(top: 5, bottom: 5, left: 25, right: 25),
                         decoration: const BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(30)),
                           color: Color.fromRGBO(255, 255, 255, 1.0),
@@ -60,7 +61,7 @@ class _Creacion_CuentaState extends State<Creacion_Cuenta> {
                         child: const Stack(
                           children: <Widget>[
 
-                            Text("  Tipo de Cuenta  ",
+                            Text("Tipo de Cuenta",
                               style: TextStyle(
                                   fontSize: 30,
                                   color: Color.fromRGBO(73, 80, 91, 1.0),

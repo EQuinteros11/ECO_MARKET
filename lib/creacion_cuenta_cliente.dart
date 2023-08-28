@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:uno/inicio_sesion_cliente.dart';
+
+
 // import 'package:stateful_app/form.dart';
 
 
@@ -86,7 +88,7 @@ class RegistroApp extends State<RegistroCliente> {
                         ],
                       ),
 
-                      // Texto de Creacion de Cuenta
+                      // Texto de creacion de cuenta
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
@@ -110,73 +112,155 @@ class RegistroApp extends State<RegistroCliente> {
                     ],
                   ),
                 ),
-                Padding(padding: EdgeInsets.only(left: 10,top: 20,right: 10),
-                  child: TextField(
-                    controller: usuario,
-                    decoration: InputDecoration(
-                        labelText: 'Nombre',
-                        hintText: 'Digite nombres',
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20))),
-                  ),
-                ),
-                Padding(padding: EdgeInsets.only(left: 10,top: 50,right: 10),
-                  child: TextField(
-                    decoration: InputDecoration(
-                        labelText: 'Apellidos',
-                        hintText: 'Digite apellidos',
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20))),
-                  ),
-                ),
-                Padding(padding: EdgeInsets.only(left: 10,top: 50,right: 10),
-                  child: TextField(
-                    decoration: InputDecoration(
-                        labelText: 'Dirección',
-                        hintText: 'Digite su dirección completa',
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20))),
-                  ),
-                ),
-                Padding(padding: EdgeInsets.only(left: 10,top: 50,right: 10),
-                  child: TextField(
-                    decoration: InputDecoration(
-                        labelText: 'Teléfono',
-                        hintText: "0000-0000",
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20))),
-                  ),
-                ),
 
-                Padding(padding: EdgeInsets.only(left: 10,top: 50,right: 10),
-                  child: TextField(
-                    decoration: InputDecoration(
-                        labelText: 'Correo electrónico',
-                        hintText: 'Digite correo',
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20))),
+                // Contenedor de campos de formulario
+                Container(
+                  padding: const EdgeInsets.only(top: 10, bottom: 10, left: 10, right: 10),
+                  margin: const EdgeInsets.only(top: 15, left: 20, right: 20),
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(25)),
+                    color: Color.fromRGBO(255, 255, 255, 0.2),
                   ),
-                ),
-                Padding(padding: EdgeInsets.only(left: 10,top: 50,right: 10),
-                  child: TextField(
-                    decoration: InputDecoration(
-                        labelText: 'Contraseña',
-                        hintText: 'Digite su contraseña',
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20))),
-                  ),
-                ),
-                CheckboxListTile(
-                  value: _checkBox,
-                  title: Text("Acepto términos de política  y privacidad"),
-                  onChanged: (val) {
-                    setState(() {
-                      _checkBox = val!;
-                    });
-                  },
-                  controlAffinity: ListTileControlAffinity.leading,
-                ),
 
+                  // Columna donde se almacenan todos los campos
+                  child: Column(
+                    children:<Widget> [
+
+                      // Campo de Nombres
+                      Container(
+                        margin: const EdgeInsets.all(10),
+                        decoration: const BoxDecoration(
+                          border: Border( bottom: BorderSide(
+                            color: Color.fromRGBO(255, 255, 255, 1.0),
+                            width: 2
+                          )
+                          ),
+                        ),
+                        child: TextFormField(
+                          controller: usuario,
+                          style: const TextStyle(
+                            color: Color.fromRGBO(255, 255, 255, 1.0),
+                            fontSize: 20
+                          ),
+                          decoration: const InputDecoration(
+                            labelText: 'Nombre',
+                            hintText: 'Digite nombres',
+                            border: InputBorder.none,
+                            hintStyle: TextStyle(
+                              color: Color.fromRGBO(255, 255, 255, 0.8),
+                            ),
+                            labelStyle: TextStyle(
+                              color: Color.fromRGBO(255, 255, 255, 1.0),
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      // Campo de Apellidos
+                      Container(
+                        margin: const EdgeInsets.all(10),
+                        decoration: const BoxDecoration(
+                          border: Border( bottom: BorderSide(
+                            color: Color.fromRGBO(255, 255, 255, 1.0),
+                            width: 2
+                          ) )
+                        ),
+                        child: TextFormField(
+                          decoration: const InputDecoration(
+                              labelText: 'Apellidos',
+                              hintText: 'Digite apellidos',
+                            border: InputBorder.none,
+                            hintStyle: TextStyle(
+                              color: Color.fromRGBO(255, 255, 255, 0.8),
+                            ),
+                            labelStyle: TextStyle(
+                              color: Color.fromRGBO(255, 255, 255, 1.0),
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      // Campo de Direccion
+                      Container(
+                        margin: const EdgeInsets.all(10),
+                        decoration: const BoxDecoration(
+                            border: Border( bottom: BorderSide(
+                                color: Color.fromRGBO(255, 255, 255, 1.0),
+                                width: 2
+                            ) )
+                        ),
+                        child: TextFormField(
+                          decoration: const InputDecoration(
+                              labelText: 'Dirección',
+                              hintText: 'Digite su dirección completa',
+                              border: InputBorder.none,
+                            hintStyle: TextStyle(
+                              color: Color.fromRGBO(255, 255, 255, 0.8),
+                            ),
+                            labelStyle: TextStyle(
+                              color: Color.fromRGBO(255, 255, 255, 1.0),
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      // Campo de Telefono
+                      Padding(padding: const EdgeInsets.only(left: 10,top: 30,right: 10),
+                        child: TextField(
+                          decoration: InputDecoration(
+                              labelText: 'Teléfono',
+                              hintText: "0000-0000",
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(20))),
+                        ),
+                      ),
+
+                      Padding(padding: const EdgeInsets.only(left: 10,top: 30,right: 10),
+                        child: TextField(
+                          decoration: InputDecoration(
+                              labelText: 'Correo electrónico',
+                              hintText: 'Digite correo',
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(20))),
+                        ),
+                      ),
+                      Padding(padding: const EdgeInsets.only(left: 10,top: 30,right: 10),
+                        child: TextField(
+                          obscureText: true,
+                          enableSuggestions: false,
+                          autocorrect: false,
+                          decoration: InputDecoration(
+                              labelText: 'Contraseña',
+                              hintText: 'Digite su contraseña',
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(20))),
+                        ),
+                      ),
+                      Padding(padding: const EdgeInsets.only(left: 10,top: 30,right: 10),
+                        child: TextField(
+                          obscureText: true,
+                          enableSuggestions: false,
+                          autocorrect: false,
+                          decoration: InputDecoration(
+                              labelText: 'Confirmar Contraseña',
+                              hintText: 'Digite su contraseña',
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(20))),
+                        ),
+                      ),
+                      CheckboxListTile(
+                        value: _checkBox,
+                        title: Text("Acepto términos de política y privacidad"),
+                        onChanged: (val) {
+                          setState(() {
+                            _checkBox = val!;
+                          });
+                        },
+                        controlAffinity: ListTileControlAffinity.leading,
+                      ),
+                    ]
+                  ),
+                ),
                 Padding(padding: EdgeInsets.all(20),
                   child: ElevatedButton(
                     onPressed: () {

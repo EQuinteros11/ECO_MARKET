@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uno/creacion_cuenta_cliente.dart';
+import 'package:uno/creacion_cuenta_vendedor.dart';
 
 class Creacion_Cuenta extends StatefulWidget {
   const Creacion_Cuenta({super.key});
@@ -241,7 +242,11 @@ class _Creacion_CuentaState extends State<Creacion_Cuenta> {
                                           const SizedBox( height: 5 ),
 
                                           FilledButton(
-                                              onPressed: (){},
+                                              onPressed: (){
+                                                Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(builder: (context) => const CreacionCuentaVendedor()));
+                                              },
                                               style: TextButton.styleFrom(
                                                 padding: const EdgeInsets.only( top: 10, bottom: 10, left: 25, right: 25 ),
                                                 backgroundColor: Color.fromRGBO(65, 90, 119, 1.0),

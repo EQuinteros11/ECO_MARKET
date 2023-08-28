@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uno/inicio_sesion_vendedor.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class CreacionCuentaVendedor extends StatefulWidget {
   const CreacionCuentaVendedor({super.key});

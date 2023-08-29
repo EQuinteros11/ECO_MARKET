@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:uno/inicio_sesion_cliente.dart';
+import 'package:intl/intl.dart';
 
 
 // import 'package:stateful_app/form.dart';
@@ -13,6 +15,12 @@ class RegistroCliente extends StatefulWidget{
 class RegistroApp extends State<RegistroCliente> {
   TextEditingController usuario = TextEditingController();
   bool _checkBox = false;
+  var maskFormatterCelphone = MaskTextInputFormatter(
+      mask: '####-####',
+      filter: { "#": RegExp(r'[0-9]') },
+      type: MaskAutoCompletionType.lazy
+  );
+
 
   Widget build(BuildContext context){
 
@@ -119,7 +127,7 @@ class RegistroApp extends State<RegistroCliente> {
                   margin: const EdgeInsets.only(top: 15, left: 20, right: 20),
                   decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(25)),
-                    color: Color.fromRGBO(255, 255, 255, 0.2),
+                    color: Color.fromRGBO(0, 0, 0, 0.2),
                   ),
 
                   // Columna donde se almacenan todos los campos
@@ -140,11 +148,12 @@ class RegistroApp extends State<RegistroCliente> {
                           controller: usuario,
                           style: const TextStyle(
                             color: Color.fromRGBO(255, 255, 255, 1.0),
-                            fontSize: 20
+                            fontSize: 17
                           ),
                           decoration: const InputDecoration(
                             labelText: 'Nombre',
                             hintText: 'Digite nombres',
+                            contentPadding: EdgeInsets.symmetric(vertical: 0.0),
                             border: InputBorder.none,
                             hintStyle: TextStyle(
                               color: Color.fromRGBO(255, 255, 255, 0.8),
@@ -166,9 +175,14 @@ class RegistroApp extends State<RegistroCliente> {
                           ) )
                         ),
                         child: TextFormField(
+                          style: const TextStyle(
+                              color: Color.fromRGBO(255, 255, 255, 1.0),
+                              fontSize: 17
+                          ),
                           decoration: const InputDecoration(
-                              labelText: 'Apellidos',
-                              hintText: 'Digite apellidos',
+                            labelText: 'Apellidos',
+                            hintText: 'Digite apellidos',
+                            contentPadding: EdgeInsets.symmetric(vertical: 0.0),
                             border: InputBorder.none,
                             hintStyle: TextStyle(
                               color: Color.fromRGBO(255, 255, 255, 0.8),
@@ -190,10 +204,15 @@ class RegistroApp extends State<RegistroCliente> {
                             ) )
                         ),
                         child: TextFormField(
+                          style: const TextStyle(
+                              color: Color.fromRGBO(255, 255, 255, 1.0),
+                              fontSize: 17
+                          ),
                           decoration: const InputDecoration(
-                              labelText: 'Dirección',
-                              hintText: 'Digite su dirección completa',
-                              border: InputBorder.none,
+                            labelText: 'Dirección',
+                            hintText: 'Digite su dirección completa',
+                            contentPadding: EdgeInsets.symmetric(vertical: 0.0),
+                            border: InputBorder.none,
                             hintStyle: TextStyle(
                               color: Color.fromRGBO(255, 255, 255, 0.8),
                             ),
@@ -205,74 +224,223 @@ class RegistroApp extends State<RegistroCliente> {
                       ),
 
                       // Campo de Telefono
-                      Padding(padding: const EdgeInsets.only(left: 10,top: 30,right: 10),
-                        child: TextField(
-                          decoration: InputDecoration(
-                              labelText: 'Teléfono',
-                              hintText: "0000-0000",
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(20))),
+                      Container(
+                        margin: const EdgeInsets.all(10),
+                        decoration: const BoxDecoration(
+                            border: Border( bottom: BorderSide(
+                                color: Color.fromRGBO(255, 255, 255, 1.0),
+                                width: 2
+                            ) )
+                        ),
+                        child: TextFormField(
+                          inputFormatters: [maskFormatterCelphone],
+                          style: const TextStyle(
+                              color: Color.fromRGBO(255, 255, 255, 1.0),
+                              fontSize: 17
+                          ),
+                          decoration: const InputDecoration(
+                            labelText: 'Teléfono',
+                            hintText: "0000-0000",
+                            contentPadding: EdgeInsets.symmetric(vertical: 0.0),
+                            border: InputBorder.none,
+                            hintStyle: TextStyle(
+                              color: Color.fromRGBO(255, 255, 255, 0.8),
+                            ),
+                            labelStyle: TextStyle(
+                              color: Color.fromRGBO(255, 255, 255, 1.0),
+                            ),
+                          ),
                         ),
                       ),
 
-                      Padding(padding: const EdgeInsets.only(left: 10,top: 30,right: 10),
-                        child: TextField(
+                      // Campo de correo electronico
+                      Container(
+                        margin: const EdgeInsets.all(10),
+                        decoration: const BoxDecoration(
+                            border: Border( bottom: BorderSide(
+                                color: Color.fromRGBO(255, 255, 255, 1.0),
+                                width: 2
+                            ) )
+                        ),
+                        child: const TextField(
+                          style: TextStyle(
+                              color: Color.fromRGBO(255, 255, 255, 1.0),
+                              fontSize: 17
+                          ),
                           decoration: InputDecoration(
-                              labelText: 'Correo electrónico',
-                              hintText: 'Digite correo',
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(20))),
+                            labelText: 'Correo electrónico',
+                            hintText: 'Digite correo',
+                            contentPadding: EdgeInsets.symmetric(vertical: 0.0),
+                            border: InputBorder.none,
+                            hintStyle: TextStyle(
+                              color: Color.fromRGBO(255, 255, 255, 0.8),
+                            ),
+                            labelStyle: TextStyle(
+                              color: Color.fromRGBO(255, 255, 255, 1.0),
+                            ),
+                          ),
                         ),
                       ),
-                      Padding(padding: const EdgeInsets.only(left: 10,top: 30,right: 10),
-                        child: TextField(
+
+                      // Campo de contraseña
+                      Container(
+                        margin: const EdgeInsets.all(10),
+                        decoration: const BoxDecoration(
+                            border: Border( bottom: BorderSide(
+                                color: Color.fromRGBO(255, 255, 255, 1.0),
+                                width: 2
+                            ) )
+                        ),
+                        child: const TextField(
+                          style: TextStyle(
+                              color: Color.fromRGBO(255, 255, 255, 1.0),
+                              fontSize: 17
+                          ),
                           obscureText: true,
                           enableSuggestions: false,
                           autocorrect: false,
                           decoration: InputDecoration(
-                              labelText: 'Contraseña',
-                              hintText: 'Digite su contraseña',
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(20))),
+                            labelText: 'Contraseña',
+                            hintText: 'Digite su contraseña',
+                            contentPadding: EdgeInsets.symmetric(vertical: 0.0),
+                            border: InputBorder.none,
+                            hintStyle: TextStyle(
+                              color: Color.fromRGBO(255, 255, 255, 0.8),
+                            ),
+                            labelStyle: TextStyle(
+                              color: Color.fromRGBO(255, 255, 255, 1.0),
+                            ),
+                          ),
                         ),
                       ),
-                      Padding(padding: const EdgeInsets.only(left: 10,top: 30,right: 10),
-                        child: TextField(
+
+                      // Campo de confirmar contraseña
+                      Container(
+                        margin: const EdgeInsets.all(10),
+                        decoration: const BoxDecoration(
+                            border: Border( bottom: BorderSide(
+                                color: Color.fromRGBO(255, 255, 255, 1.0),
+                                width: 2
+                            ) )
+                        ),
+                        child: const TextField(
+                          style: TextStyle(
+                              color: Color.fromRGBO(255, 255, 255, 1.0),
+                              fontSize: 17
+                          ),
                           obscureText: true,
                           enableSuggestions: false,
                           autocorrect: false,
                           decoration: InputDecoration(
-                              labelText: 'Confirmar Contraseña',
-                              hintText: 'Digite su contraseña',
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(20))),
+                            labelText: 'Confirmar Contraseña',
+                            hintText: 'Digite su contraseña',
+                            contentPadding: EdgeInsets.symmetric(vertical: 0.0),
+                            border: InputBorder.none,
+                            hintStyle: TextStyle(
+                              color: Color.fromRGBO(255, 255, 255, 0.8),
+                            ),
+                            labelStyle: TextStyle(
+                              color: Color.fromRGBO(255, 255, 255, 1.0),
+                            ),
+                          ),
                         ),
                       ),
-                      CheckboxListTile(
-                        value: _checkBox,
-                        title: Text("Acepto términos de política y privacidad"),
-                        onChanged: (val) {
-                          setState(() {
-                            _checkBox = val!;
-                          });
-                        },
-                        controlAffinity: ListTileControlAffinity.leading,
+
+                      // Checkbox de confirmación de politica de privacidad
+                      Container(
+                        margin: const EdgeInsets.only(top: 10),
+                        child: CheckboxListTile(
+                          value: _checkBox,
+                          checkColor: const Color.fromRGBO(255, 255, 255, 1.0),
+                          activeColor: const Color.fromRGBO(73, 80, 91, 1.0),
+                          title: const Text("Acepto términos de política y privacidad",
+                          style: TextStyle(
+                            color: Color.fromRGBO(255, 255, 255, 1.0),
+                          ),),
+                          onChanged: (val) {
+                            setState(() {
+                              _checkBox = val!;
+                            });
+                          },
+                          controlAffinity: ListTileControlAffinity.leading,
+                        ),
                       ),
                     ]
                   ),
                 ),
-                Padding(padding: EdgeInsets.all(20),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => MyAppForm())
-                      );
-                    },
-                    child: Text('Crear cuenta'),
-                  ),
+
+                // Espaciado entre elementos
+                const SizedBox(
+                  height: 15,
                 ),
 
+                Column(
+                  children: <Widget> [
+                    // Botón de Crear Cuenta
+                      OutlinedButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const MyAppForm())
+                          );
+                        },
+                        style: TextButton.styleFrom(
+                          padding: const EdgeInsets.only( top: 10, bottom: 10, left: 75, right: 75 ),
+                          backgroundColor: const Color.fromRGBO(255, 255, 255, 1.0),
+                        ),
+                        child: const Text('Crear cuenta',
+                          style: TextStyle(
+                            color: Color.fromRGBO(73, 80, 91, 1.0),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,),
+                        ),
+                      ),
+
+                    // Espaciado entre elementos
+                    const SizedBox(
+                      height: 15,
+                    ),
+
+                    const Text("¿Ya posees una cuenta?",
+                    style: TextStyle(
+                      color: Color.fromRGBO(73, 80, 91, 1.0),
+                      fontWeight: FontWeight.w600,
+                      fontSize: 18
+                    ),
+                    ),
+
+                    // Espaciado entre elementos
+                    const SizedBox(
+                      height: 0,
+                    ),
+
+                    // Segundo Boton
+                    FilledButton(
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const MyAppForm()),
+                        );
+                      },
+                      style: TextButton.styleFrom(
+                          padding: const EdgeInsets.only( top: 10, bottom: 10, left: 75, right: 75 ),
+                          backgroundColor: const Color.fromRGBO(73, 80, 91, 1.0)
+                      ),
+                      child: const Text("Iniciar Sesión",
+                        style: TextStyle(
+                          color: Color.fromRGBO(255, 255, 255, 1.0),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+
+                    // Espaciado Final
+                    const SizedBox(
+                      height: 10,
+                    ),
+                  ],
+                ),
               ],
             ),
           ),

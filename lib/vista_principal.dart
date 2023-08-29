@@ -86,10 +86,9 @@ class _pruebaState extends State<VistaPrincipal> {
                             MaterialPageRoute(builder: (context) => const MyAppForm()),
                           );
                         },
-
                         style: TextButton.styleFrom(
                           padding: const EdgeInsets.only( top: 10, bottom: 10, left: 75, right: 75 ),
-                          backgroundColor: Color.fromRGBO(224, 225, 221, 1.0),
+                          backgroundColor: const Color.fromRGBO(224, 225, 221, 1.0),
                         ),
                         child: const Text("Iniciar Sesión",
                           style: TextStyle(

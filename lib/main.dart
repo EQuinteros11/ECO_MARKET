@@ -8,15 +8,13 @@ import 'inicio_sesion_vendedor.dart';
 
 void main() => runApp(MyApp());
 
-
-
 class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
       return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'ECO MARKET',
-        initialRoute: "creacionCuentaVendedor",
+        initialRoute: "vistaPrincipal",
         routes: <String, WidgetBuilder>{
           "vistaPrincipal": (context) => VistaPrincipal(),
           "creacionTipoCuenta": (context) => Creacion_Cuenta(),

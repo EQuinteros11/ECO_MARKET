@@ -37,120 +37,122 @@ class _pruebaState extends State<VistaPrincipal> {
 */
       // CONTENIDO DE LA VISTA
       //Contenedor Principal
-      body: Container(
-          child: Stack(
-            children: <Widget>[
-              Image.asset("assets/img/Hero-Container.png", width: MediaQuery.of(context).size.width,
-                fit: BoxFit.cover,
-                height: 400,),
-              Container(
-                // Estilos del Contenedor
-                padding: const EdgeInsets.only( top: 30, left: 20, right: 20),
-                margin: const EdgeInsets.only(top: 400),
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.only( topLeft: Radius.circular(30), topRight: Radius.circular(30) ),
-                  color: Color.fromRGBO(224, 225, 221, 1.0),
-                ),
-                child: Center(
-                  child: Column(
-                    children: <Widget> [
-                      // Primer Texto
-                      const Text("Haz que tu negocio crezca de manera exponencial dándote a conocer en todo el mercado con nosotros",
-                        style: ( TextStyle(
-                            fontWeight: FontWeight.w900,
-                            fontSize: 18,
-                            color: Color.fromRGBO(73, 80, 91, 1.0))),
-                        textAlign: TextAlign.center,
-                      ),
-
-                      // Espaciado entre elementos
-                      const SizedBox(height: 35),
-
-                      // Segundo texto
-                      const Text("Comienza a montar tu empresa de manera fácil y rápida",
-                        style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                            color: Color.fromRGBO(73, 80, 91, 1.0)),
-                        textAlign: TextAlign.center,
-                      ),
-
-                      // Espaciado entre elementos
-                      const SizedBox(height: 35),
-
-                      // Primer Botòn ( Iniciar Sesiòn )
-                      OutlinedButton(
-                        onPressed: (){
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const MyAppForm()),
-                          );
-                        },
-
-                        style: TextButton.styleFrom(
-                          padding: const EdgeInsets.only( top: 10, bottom: 10, left: 75, right: 75 ),
-                          backgroundColor: Color.fromRGBO(224, 225, 221, 1.0),
-                        ),
-                        child: const Text("Iniciar Sesión",
-                          style: TextStyle(
-                            color: Color.fromRGBO(73, 80, 91, 1.0),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                          ),
-                        ),
-                      ),
-
-                      // Espaciado Entre botones
-                      const SizedBox(height: 10),
-
-                      // Segundo Botòn ( Crear Cuenta )
-                      FilledButton(
-                        onPressed: (){
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => Creacion_Cuenta()),
-                          );
-                        },
-                        style: TextButton.styleFrom(
-                            padding: const EdgeInsets.only( top: 10, bottom: 10, left: 75, right: 75 ),
-                            backgroundColor: const Color.fromRGBO(73, 80, 91, 1.0)
-                        ),
-                        child: const Text("Crear Cuenta",
-                          style: TextStyle(
-                            color: Color.fromRGBO(255, 255, 255, 1.0),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                          ),
-                        ),
-                      ),
-
-                      const SizedBox(height: 20),
-                      // Fila Final (Necesitas Ayuda, Contactanos)
-                      const Text("¿Necesitas ayuda?",
-                        style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                            color: Color.fromRGBO(73, 80, 91, 1.0)
-                        ),
-                      ),
-
-                      // Boton de (Contactanos)
-                      TextButton(
-                        onPressed: (){},
-                        child: const Text("Contactanos",
-                          style: TextStyle(
-                            color: Color.fromRGBO(73, 80, 91, 1.0),
-                            fontSize: 15,
-                            decoration: TextDecoration.underline,
-                          ),),
-                      )
-
-                    ],
+      body: SingleChildScrollView(
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+            child: Stack(
+              children: <Widget>[
+                Image.asset("assets/img/Hero-Container.png", width: MediaQuery.of(context).size.width,
+                  fit: BoxFit.cover,
+                  height: 400,),
+                Container(
+                  // Estilos del Contenedor
+                  padding: const EdgeInsets.only( top: 30, left: 20, right: 20),
+                  margin: const EdgeInsets.only(top: 400),
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only( topLeft: Radius.circular(30), topRight: Radius.circular(30) ),
+                    color: Color.fromRGBO(224, 225, 221, 1.0),
                   ),
-                ),
-              )
-            ],
-          )
+                  child: Center(
+                    child: Column(
+                      children: <Widget> [
+                        // Primer Texto
+                        const Text("Haz que tu negocio crezca de manera exponencial dándote a conocer en todo el mercado con nosotros",
+                          style: ( TextStyle(
+                              fontWeight: FontWeight.w900,
+                              fontSize: 18,
+                              color: Color.fromRGBO(73, 80, 91, 1.0))),
+                          textAlign: TextAlign.center,
+                        ),
+
+                        // Espaciado entre elementos
+                        const SizedBox(height: 35),
+
+                        // Segundo texto
+                        const Text("Comienza a montar tu empresa de manera fácil y rápida",
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                              color: Color.fromRGBO(73, 80, 91, 1.0)),
+                          textAlign: TextAlign.center,
+                        ),
+
+                        // Espaciado entre elementos
+                        const SizedBox(height: 35),
+
+                        // Primer Botòn ( Iniciar Sesiòn )
+                        OutlinedButton(
+                          onPressed: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const MyAppForm()),
+                            );
+                          },
+                          style: TextButton.styleFrom(
+                            padding: const EdgeInsets.only( top: 10, bottom: 10, left: 75, right: 75 ),
+                            backgroundColor: const Color.fromRGBO(224, 225, 221, 1.0),
+                          ),
+                          child: const Text("Iniciar Sesión",
+                            style: TextStyle(
+                              color: Color.fromRGBO(73, 80, 91, 1.0),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ),
+
+                        // Espaciado Entre botones
+                        const SizedBox(height: 10),
+
+                        // Segundo Botòn ( Crear Cuenta )
+                        FilledButton(
+                          onPressed: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Creacion_Cuenta()),
+                            );
+                          },
+                          style: TextButton.styleFrom(
+                              padding: const EdgeInsets.only( top: 10, bottom: 10, left: 75, right: 75 ),
+                              backgroundColor: const Color.fromRGBO(73, 80, 91, 1.0)
+                          ),
+                          child: const Text("Crear Cuenta",
+                            style: TextStyle(
+                              color: Color.fromRGBO(255, 255, 255, 1.0),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ),
+
+                        const SizedBox(height: 20),
+                        // Fila Final (Necesitas Ayuda, Contactanos)
+                        const Text("¿Necesitas ayuda?",
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              color: Color.fromRGBO(73, 80, 91, 1.0)
+                          ),
+                        ),
+
+                        // Boton de (Contactanos)
+                        TextButton(
+                          onPressed: (){},
+                          child: const Text("Contactanos",
+                            style: TextStyle(
+                              color: Color.fromRGBO(73, 80, 91, 1.0),
+                              fontSize: 15,
+                              decoration: TextDecoration.underline,
+                            ),),
+                        )
+
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            )
+        ),
       ),
     );
   }

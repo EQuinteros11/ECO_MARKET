@@ -127,17 +127,37 @@ class _InicioSesionVendedorState extends State<InicioSesionVendedor> {
                             children: <Widget>[
                               Column(
                                 children: [
-                                  TextFormField(
-                                    decoration: const InputDecoration(
-                                        labelText: "Usuario",
-                                        hintText: "ejemplo@gmail.com",
-                                        hintStyle: TextStyle(
-                                          color: Color.fromRGBO(255, 255, 255, 0.5),
-                                        ),
-                                        labelStyle: TextStyle(
+                                  Container(
+                                    margin: const EdgeInsets.only(top: 10),
+                                    decoration: const BoxDecoration(
+                                      border: Border( bottom: BorderSide(
                                           color: Color.fromRGBO(255, 255, 255, 1.0),
-                                          decorationColor: Color.fromRGBO(255, 255, 255, 1.0),
-                                        )
+                                          width: 2
+                                      )
+                                      ),
+                                    ),
+                                    child: TextFormField(
+                                      style: const TextStyle(
+                                          color: Color.fromRGBO(255, 255, 255, 1.0),
+                                          fontSize: 17
+                                      ),
+                                      decoration: const InputDecoration(
+                                          prefixIcon: Icon(
+                                          Icons.attach_email_outlined,
+                                          color: Color.fromRGBO(255, 255, 255, 1.0),
+                                        ),
+                                          labelText: "Usuario",
+                                          hintText: "ejemplo@gmail.com",
+                                          contentPadding: EdgeInsets.only(bottom: 1.0),
+                                          border: InputBorder.none,
+                                          hintStyle: TextStyle(
+                                            color: Color.fromRGBO(255, 255, 255, 0.5),
+                                          ),
+                                          labelStyle: TextStyle(
+                                            color: Color.fromRGBO(255, 255, 255, 1.0),
+                                            decorationColor: Color.fromRGBO(255, 255, 255, 1.0),
+                                          )
+                                      ),
                                     ),
                                   )
                                 ],
@@ -150,7 +170,9 @@ class _InicioSesionVendedorState extends State<InicioSesionVendedor> {
                     ),
 
                     // Espaciado entre elementos
-                    const SizedBox(height: 15,),
+                    const SizedBox(
+                      height: 25,
+                    ),
 
                     // Campo de Constraseña
                     Column(
@@ -158,37 +180,47 @@ class _InicioSesionVendedorState extends State<InicioSesionVendedor> {
                       children: <Widget>[
                         Container(
                           margin: const EdgeInsets.only(top: 10),
-                          // FORMULARIO
-                          child: Stack(
-                            children: <Widget>[
-                              Column(
-                                children: [
-                                  TextFormField(
-                                    obscureText: true,
-                                    enableSuggestions: false,
-                                    autocorrect: false,
-                                    decoration: const InputDecoration(
-                                        labelText: "Contraseña",
-                                        hintStyle: TextStyle(
-                                          color: Color.fromRGBO(255, 255, 255, 0.5),
-                                        ),
-                                        labelStyle: TextStyle(
-                                          color: Color.fromRGBO(255, 255, 255, 1.0),
-                                          decorationColor: Color.fromRGBO(255, 255, 255, 1.0),
-                                        )
-                                    ),
-                                  )
-                                ],
-                              ),
-
-                            ],
+                          decoration: const BoxDecoration(
+                            border: Border(
+                                bottom: BorderSide(
+                                color: Color.fromRGBO(255, 255, 255, 1.0),
+                                width: 2
+                                )
+                            ),
+                          ),
+                          child: TextFormField(
+                            obscureText: true,
+                            enableSuggestions: false,
+                            autocorrect: false,
+                            style: const TextStyle(
+                                color: Color.fromRGBO(255, 255, 255, 1.0),
+                                fontSize: 17
+                            ),
+                            decoration: const InputDecoration(
+                                prefixIcon: Icon(
+                                  Icons.lock,
+                                  color: Color.fromRGBO(255, 255, 255, 1.0),
+                                ),
+                                labelText: "Contraseña",
+                                contentPadding: EdgeInsets.symmetric(vertical: 0.5),
+                                border: InputBorder.none,
+                                hintStyle: TextStyle(
+                                  color: Color.fromRGBO(255, 255, 255, 0.5),
+                                ),
+                                labelStyle: TextStyle(
+                                  color: Color.fromRGBO(255, 255, 255, 1.0),
+                                  decorationColor: Color.fromRGBO(255, 255, 255, 1.0),
+                                )
+                            ),
                           ),
                         )
                       ],
                     ),
 
                     // Espacio entre elementos
-                    const SizedBox(height: 20,),
+                    const SizedBox(
+                      height: 30,
+                    ),
 
                     // Boton para Inciar Sesion
                     Column(

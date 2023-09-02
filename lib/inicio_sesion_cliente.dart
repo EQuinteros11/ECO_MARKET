@@ -7,20 +7,6 @@ class MyAppForm extends StatefulWidget {
   @override
   State<MyAppForm> createState() => _MyAppFormState();
 }
-final ButtonStyle flatButtonStyle = TextButton.styleFrom(
-  shape: const RoundedRectangleBorder(
-    borderRadius: BorderRadius.all(Radius.circular(20),
-    ),
-  ),
-);
-final ButtonStyle flatButtonStyle2 = TextButton.styleFrom(
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(Radius.circular(20),
-      ),
-    ),
-    backgroundColor: Colors.blueGrey
-);
-
 
 class _MyAppFormState extends State<MyAppForm> {
 
@@ -130,68 +116,73 @@ class _MyAppFormState extends State<MyAppForm> {
                     )
                   ],
                 ),
-                SizedBox(
-                  width:160.0,
-                  height: 35.0,
-                  child: Divider(
-                    color: Colors.blueAccent[600],
-                  ),
+
+                // Espaciado entre elementos
+                const SizedBox(
+                  height: 5.0,
                 ),
-                TextField(
-                    enableInteractiveSelection: false,
-                    autofocus: true,
-                    textCapitalization: TextCapitalization.characters,
-                    decoration: InputDecoration(
-                        hintText: 'NOMBRE-USUARIO',
-                        labelText: 'usuario',
-                        suffixIcon: Icon(
-                            Icons.verified_user
-                        ),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0)
+
+                // Campo de Usuario
+                Container(
+                  margin: const EdgeInsets.only(top: 10),
+                  decoration: const BoxDecoration(
+                    border: Border(
+                        bottom: BorderSide(
+                        color: Color.fromRGBO(255, 255, 255, 1.0),
+                        width: 2
                         )
                     ),
-                    onSubmitted: (valor){
-                      print('el nombre es'+valor.toString());
-                    }
-                ),
-                Divider(
-                  height: 18.0,
-                ),
-                TextField(
-                  enableInteractiveSelection: false,
-                  obscureText: true,
-                  decoration: InputDecoration(
-                      hintText: 'contraseña ',
-                      labelText: 'contraseña',
-                      suffixIcon: Icon(Icons.lock_outline),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20.0)
-                      )
+                  ),
+                  child: TextFormField(
+                    style: const TextStyle(
+                        color: Color.fromRGBO(255, 255, 255, 1.0),
+                        fontSize: 17
+                    ),
+                      decoration: const InputDecoration(
+                          hintText: 'ejemplo@gmail.com',
+                          labelText: 'Usuario',
+                          prefixIcon: Icon(
+                            Icons.attach_email_outlined,
+                            color: Color.fromRGBO(255, 255, 255, 1.0),
+                          ),
+                      ),
                   ),
                 ),
-                Divider(
-                  height: 15.0,
+
+                // Botón
+                TextFormField(
+                  obscureText: true,
+                  enableSuggestions: false,
+                  autocorrect: false,
+                  decoration: const InputDecoration(
+                      hintText: 'contraseña ',
+                      labelText: 'Contraseña',
+                      prefixIcon: Icon(
+                        Icons.lock_outline,
+                        color: Color.fromRGBO(255, 255, 255, 1.0),
+                      ),
+                  ),
                 ),
+
+
                 ElevatedButton(
-                  style: flatButtonStyle,
                   onPressed:(){
 
                   },
-                  child: Text('Iniciar Sesión'),
+                  child: const Text('Iniciar Sesión'),
 
                 ),
-                SizedBox(
+                const SizedBox(
                   height:16.0,
                 ),
+
                 ElevatedButton(
-                  style: flatButtonStyle2,
                   onPressed:(){
                     Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => InicioSesionVendedor()));
                   },
-                  child: Text('Iniciar Sesión como vendedor'),
+                  child: const Text('Iniciar Sesión como vendedor'),
 
                 )
               ],

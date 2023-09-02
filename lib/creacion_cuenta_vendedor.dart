@@ -162,10 +162,10 @@ class _CreacionCuentaVendedorState extends State<CreacionCuentaVendedor> {
                                         ),
                                       ),
                                       child: TextFormField(
-                                        style: const TextStyle(
-                                            color: Color.fromRGBO(255, 255, 255, 1.0),
-                                            fontSize: 17
-                                        ),
+                                          style: const TextStyle(
+                                              color: Color.fromRGBO(255, 255, 255, 1.0),
+                                              fontSize: 17
+                                          ),
                                         decoration: const InputDecoration(
                                             labelText: "Nombre del negocio *",
                                             hintText: "Nombre",

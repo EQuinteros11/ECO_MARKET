@@ -40,6 +40,7 @@ class _pruebaState extends State<VistaPrincipal> {
       body: SingleChildScrollView(
         child: Container(
           width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height    ,
             child: Stack(
               children: <Widget>[
                 Image.asset("assets/img/Hero-Container.png", width: MediaQuery.of(context).size.width,

@@ -40,15 +40,15 @@ class _pruebaState extends State<VistaPrincipal> {
       body: SingleChildScrollView(
         child: Container(
           width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height    ,
             child: Stack(
               children: <Widget>[
                 Image.asset("assets/img/Hero-Container.png", width: MediaQuery.of(context).size.width,
                   fit: BoxFit.cover,
-                  height: 400,),
+                ),
                 Container(
                   // Estilos del Contenedor
                   padding: const EdgeInsets.only( top: 30, left: 20, right: 20),
+                  height: MediaQuery.of(context).size.height,
                   margin: const EdgeInsets.only(top: 400),
                   decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only( topLeft: Radius.circular(30), topRight: Radius.circular(30) ),
@@ -91,7 +91,7 @@ class _pruebaState extends State<VistaPrincipal> {
                           },
                           style: TextButton.styleFrom(
                             padding: const EdgeInsets.only( top: 10, bottom: 10, left: 75, right: 75 ),
-                            backgroundColor: const Color.fromRGBO(224, 225, 221, 1.0),
+                            backgroundColor: const Color.fromRGBO(255, 255, 255, 1.0),
                           ),
                           child: const Text("Iniciar Sesión",
                             style: TextStyle(

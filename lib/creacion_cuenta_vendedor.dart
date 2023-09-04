@@ -26,6 +26,7 @@ class _CreacionCuentaVendedorState extends State<CreacionCuentaVendedor> {
               fit: BoxFit.cover
           )
       ),
+
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Container(
@@ -669,7 +670,9 @@ class _CreacionCuentaVendedorState extends State<CreacionCuentaVendedor> {
                 ),
 
                 //Espaciado final
-                SizedBox(height: 15),
+                const SizedBox(
+                    height: 15,
+                ),
               ],
             ),
           ),

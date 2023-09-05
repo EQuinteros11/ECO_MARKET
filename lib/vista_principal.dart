@@ -40,7 +40,7 @@ class _pruebaState extends State<VistaPrincipal> {
       body: SingleChildScrollView(
         child: Container(
           width: MediaQuery.of(context).size.width,
-            child: Stack(
+            child: Column(
               children: <Widget>[
                 Image.asset("assets/img/Hero-Container.png", width: MediaQuery.of(context).size.width,
                   fit: BoxFit.cover,
@@ -48,8 +48,6 @@ class _pruebaState extends State<VistaPrincipal> {
                 Container(
                   // Estilos del Contenedor
                   padding: const EdgeInsets.only( top: 30, left: 20, right: 20),
-                  height: MediaQuery.of(context).size.height,
-                  margin: const EdgeInsets.only(top: 400),
                   decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only( topLeft: Radius.circular(30), topRight: Radius.circular(30) ),
                     color: Color.fromRGBO(224, 225, 221, 1.0),

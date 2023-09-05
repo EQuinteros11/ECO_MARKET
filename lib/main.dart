@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uno/PrincipalCliente.dart';
 import 'package:uno/creacion_cuenta_vendedor.dart';
 import 'package:uno/seleccion_creacion_tipo_cuenta.dart';
 import 'package:uno/vista_principal.dart';
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget{
       return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'ECO MARKET',
-        initialRoute: "vistaPrincipal",
+        initialRoute: "vistaPrincipalCliente",
         routes: <String, WidgetBuilder>{
           "vistaPrincipal": (context) => VistaPrincipal(),
           "creacionTipoCuenta": (context) => Creacion_Cuenta(),
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget{
           "creacionCuentaVendedor": (context) => CreacionCuentaVendedor(),
           "inicioSesionVendedor": (context) => InicioSesionVendedor(),
           "InicioSesionCliente": (context) => MyAppForm(),
+          "vistaPrincipalCliente": (context) => VistaPrincipalCliente(),
         },
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),

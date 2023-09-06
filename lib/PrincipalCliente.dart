@@ -16,6 +16,7 @@ class _VistaPrincipalClienteState extends State<VistaPrincipalCliente> {
           children: [
             // Hero
             Container(
+              height: 260,
               decoration: const BoxDecoration(
                 image: DecorationImage(
                 image: AssetImage("assets/img/vistaPrincipal.png"),
@@ -33,12 +34,12 @@ class _VistaPrincipalClienteState extends State<VistaPrincipalCliente> {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Container(
-                              margin: const EdgeInsets.only( top: 20),
+                              margin: const EdgeInsets.only( top: 25),
                                 child: IconButton(
                                   onPressed: (){},
                                   icon: const Icon(Icons.menu,
                                     color: Color.fromRGBO(65, 90, 119, 1.0),
-                                    size: 45,
+                                    size: 40,
                                   ),
                                   tooltip: "Menú",
                               )
@@ -71,18 +72,31 @@ class _VistaPrincipalClienteState extends State<VistaPrincipalCliente> {
                             Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                const Text("Bienvenido"),
+                                const Text("Bienvenido",
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(255, 255, 255, 1.0),
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 22
+                                  ),
+                                ),
                                 Container(
-                                  padding: const EdgeInsets.symmetric( vertical: 5, horizontal: 20),
+                                  padding: const EdgeInsets.symmetric( vertical: 0, horizontal: 35),
                                   decoration: const BoxDecoration(
                                     borderRadius: BorderRadius.all(Radius.circular(30)),
                                     color: Color.fromRGBO(255, 255, 255, 1.0),
                                   ),
-                                  child: Text("Ivan") ,
+                                  child: const Text("Iván",
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(63, 61, 86, 1.0),
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 23
+                                    ),
+                                  ) ,
                                 )
 
                               ],
-                            )
+                            ),
+
                           ],
                         ),
                       ],
@@ -96,13 +110,33 @@ class _VistaPrincipalClienteState extends State<VistaPrincipalCliente> {
             //Contenido Principal
             Container(
               alignment: Alignment.topLeft,
-              child: const Column(
+              child: Column(
                 children: <Widget> [
-                  Text("data"),
-                  Icon(
-                    Icons.menu,
-                    color: Color.fromRGBO(255, 255, 255, 1.0),
-                  )
+                  Container(
+                   child: Column(
+                     children: <Widget> [
+                       const Row(
+                         mainAxisAlignment: MainAxisAlignment.start,
+                         children: [
+                           Text("Mas opciones"),
+                         ],
+                       ),
+
+                       const Row(
+                         children: [
+                           Text("Los mejores productos"),
+                         ],
+                       ),
+                       Container(
+                         child: const Text( "El mejor precio",
+                           style: TextStyle(
+
+                           ),
+                         ),
+                       )
+                     ],
+                   ),
+                  ),
                 ],
               ),
             )

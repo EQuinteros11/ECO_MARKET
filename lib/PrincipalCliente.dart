@@ -25,7 +25,7 @@ class _VistaPrincipalClienteState extends State<VistaPrincipalCliente> {
 
               ),
               child: Container(
-                padding: const EdgeInsets.symmetric( vertical: 10, horizontal: 20 ),
+                padding: const EdgeInsets.symmetric( vertical: 30, horizontal: 30 ),
                 child: Column(
                   children: <Widget> [
                     Column(
@@ -39,7 +39,7 @@ class _VistaPrincipalClienteState extends State<VistaPrincipalCliente> {
                                   onPressed: (){},
                                   icon: const Icon(Icons.menu,
                                     color: Color.fromRGBO(65, 90, 119, 1.0),
-                                    size: 40,
+                                    size: 30,
                                   ),
                                   tooltip: "Menú",
                               )
@@ -109,33 +109,69 @@ class _VistaPrincipalClienteState extends State<VistaPrincipalCliente> {
 
             //Contenido Principal
             Container(
-              alignment: Alignment.topLeft,
+              padding: const EdgeInsets.symmetric( vertical: 20, horizontal: 5 ),
+              margin: const EdgeInsets.only( left: 20 ),
               child: Column(
                 children: <Widget> [
                   Container(
                    child: Column(
                      children: <Widget> [
                        const Row(
-                         mainAxisAlignment: MainAxisAlignment.start,
                          children: [
-                           Text("Mas opciones"),
+                           Text("Mas opciones",
+                             style: TextStyle(
+                               color: Color.fromRGBO(197, 172, 150, 1.0),
+                               fontSize: 27,
+                               fontWeight: FontWeight.w700
+                             ),
+                           ),
                          ],
                        ),
 
                        const Row(
                          children: [
-                           Text("Los mejores productos"),
+                           Text("Los mejores productos",
+                             style: TextStyle(
+                                 color: Color.fromRGBO(197, 172, 150, 1.0),
+                                 fontSize: 27,
+                                 fontWeight: FontWeight.w700
+                             ),
+                           ),
                          ],
                        ),
-                       Container(
-                         child: const Text( "El mejor precio",
-                           style: TextStyle(
 
+                       Row(
+                         children: [
+                           Container(
+                             padding: const EdgeInsets.symmetric( horizontal: 10, vertical: 5 ),
+                             decoration: const BoxDecoration(
+                               borderRadius: BorderRadius.all(Radius.circular(20)),
+                               color: Color.fromRGBO(197, 172, 150, 1.0),
+                             ),
+                             child: const Text( "El mejor precio",
+                               style: TextStyle(
+                                 color: Color.fromRGBO(255, 255, 255, 1.0),
+                                 fontWeight: FontWeight.w700,
+                                 fontSize: 27
+                               ),
+                             ),
                            ),
-                         ),
+                         ],
                        )
                      ],
                    ),
+                  ),
+                  Container(
+                    child: Column(
+                      children: <Widget> [
+                        Row(
+                          children: <Widget> [
+                            Text("data"),
+
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 ],
               ),

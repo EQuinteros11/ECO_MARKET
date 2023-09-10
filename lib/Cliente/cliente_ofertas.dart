@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../navbar.dart';
 import 'cliente_detalle_pagina_ofertas.dart';
 
 class ClienteOfertas extends StatefulWidget {
@@ -13,7 +14,11 @@ class _ClienteOfertasState extends State<ClienteOfertas> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+      drawer: NavBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.indigoAccent,
+        foregroundColor: const Color.fromRGBO(65, 90, 119, 1.0),
+      ),
       body: Container(
         decoration: const BoxDecoration(
             image: DecorationImage(
@@ -32,7 +37,7 @@ class _ClienteOfertasState extends State<ClienteOfertas> {
               style: new TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 25.0,
-                  color: Colors.black
+                  color: Colors.white
               ),
             ),
             SizedBox(

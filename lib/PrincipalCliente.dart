@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:uno/Cliente/cliente_buscar_producto.dart';
 import 'package:uno/Cliente/cliente_carrito.dart';
+import 'package:uno/Cliente/cliente_ofertas.dart';
+import 'package:uno/Cliente/cliente_recomendaciones.dart';
 import 'package:uno/inicio_sesion_cliente.dart';
 import 'package:uno/inicio_sesion_vendedor.dart';
 import 'package:uno/seleccion_creacion_tipo_cuenta.dart';
@@ -274,7 +276,7 @@ class _VistaPrincipalClienteState extends State<VistaPrincipalCliente> {
                                   size: 35,
                                 ),
                                 context,
-                                InicioSesionVendedor()
+                                const ClienteRecomendacion()
                               ),
                               Boton(
                                 "Ofertas",
@@ -284,7 +286,7 @@ class _VistaPrincipalClienteState extends State<VistaPrincipalCliente> {
                                     size: 35,
                                   ),
                                 context,
-                                VistaPrincipal()
+                                const ClienteOfertas()
                               ),
                             ]
                         ),
@@ -305,7 +307,7 @@ class _VistaPrincipalClienteState extends State<VistaPrincipalCliente> {
                                     size: 35,
                                   ),
                                 context,
-                                  InicioSesionCliente()
+                                  const InicioSesionCliente()
                               ),
                               Boton(
                                 "Tiendas",
@@ -315,7 +317,7 @@ class _VistaPrincipalClienteState extends State<VistaPrincipalCliente> {
                                   size: 35,
                                 ),
                                 context,
-                                  InicioSesionCliente()
+                                  const InicioSesionCliente()
                               )
                             ]
                         )
@@ -354,14 +356,19 @@ Widget Boton( String text, Icon icon, BuildContext context, Widget route ){
     width: 160,
     decoration: BoxDecoration(
       color: Colors.transparent,
-      borderRadius: const BorderRadius.all( Radius.circular(15) ),
-      border: Border.all( color: const Color.fromRGBO(106, 198, 242, 1.0), width: 2 )
+      borderRadius: const BorderRadius.all(
+          Radius.circular(15)
+      ),
+      border: Border.all(
+          color: const Color.fromRGBO(106, 198, 242, 1.0),
+          width: 2
+      )
     ),
     child: OutlinedButton(
           onPressed: (){
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => route ),
+              MaterialPageRoute( builder: (context) => route ),
             );
           },
           style: TextButton.styleFrom(

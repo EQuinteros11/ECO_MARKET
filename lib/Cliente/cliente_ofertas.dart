@@ -13,8 +13,15 @@ class _ClienteOfertasState extends State<ClienteOfertas> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.cyan,
-      body: ListView(
+
+      body: Container(
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/imagenescliente/VistaPrincipal.png"),
+                fit: BoxFit.cover
+            )
+        ),
+       child : ListView(
           padding: EdgeInsets.all(10.0),
           children: <Widget>[
 
@@ -68,7 +75,7 @@ class _ClienteOfertasState extends State<ClienteOfertas> {
 
             ),
           ]
-      ),
+      ),),
     );
   }
   Widget _ComidaItem(String nombre, int precio,String tienda, String imagen){

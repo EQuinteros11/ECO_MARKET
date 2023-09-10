@@ -1,4 +1,11 @@
+
 import 'package:flutter/material.dart';
+import 'package:uno/Cliente/cliente_buscar_producto.dart';
+import 'package:uno/Cliente/cliente_carrito.dart';
+import 'package:uno/inicio_sesion_cliente.dart';
+import 'package:uno/inicio_sesion_vendedor.dart';
+import 'package:uno/seleccion_creacion_tipo_cuenta.dart';
+import 'package:uno/vista_principal.dart';
 
 class VistaPrincipalCliente extends StatefulWidget {
   const VistaPrincipalCliente({super.key});
@@ -9,6 +16,7 @@ class VistaPrincipalCliente extends StatefulWidget {
 
 class _VistaPrincipalClienteState extends State<VistaPrincipalCliente> {
   @override
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
@@ -25,7 +33,7 @@ class _VistaPrincipalClienteState extends State<VistaPrincipalCliente> {
 
               ),
               child: Container(
-                padding: const EdgeInsets.symmetric( vertical: 30, horizontal: 30 ),
+                padding: const EdgeInsets.symmetric( vertical: 30, horizontal: 15 ),
                 child: Column(
                   children: <Widget> [
                     Column(
@@ -39,7 +47,7 @@ class _VistaPrincipalClienteState extends State<VistaPrincipalCliente> {
                                   onPressed: (){},
                                   icon: const Icon(Icons.menu,
                                     color: Color.fromRGBO(65, 90, 119, 1.0),
-                                    size: 30,
+                                    size: 35,
                                   ),
                                   tooltip: "Menú",
                               )
@@ -69,32 +77,46 @@ class _VistaPrincipalClienteState extends State<VistaPrincipalCliente> {
                                 color: Color.fromRGBO(217, 217, 217, 1.0),
                               ),
                             ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                const Text("Bienvenido",
-                                  style: TextStyle(
-                                    color: Color.fromRGBO(255, 255, 255, 1.0),
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 22
-                                  ),
-                                ),
-                                Container(
-                                  padding: const EdgeInsets.symmetric( vertical: 0, horizontal: 35),
-                                  decoration: const BoxDecoration(
-                                    borderRadius: BorderRadius.all(Radius.circular(30)),
-                                    color: Color.fromRGBO(255, 255, 255, 1.0),
-                                  ),
-                                  child: const Text("Iván",
-                                    style: TextStyle(
-                                      color: Color.fromRGBO(63, 61, 86, 1.0),
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 23
-                                    ),
-                                  ) ,
-                                )
 
-                              ],
+                            Container(
+                              child: Column(
+                                children: [
+                                  const Row(
+                                    children: [
+                                      Text("Bienvenido",
+                                        style: TextStyle(
+                                          color: Color.fromRGBO(255, 255, 255, 1.0),
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 25,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        padding: const EdgeInsets.symmetric( vertical: 0, horizontal: 45),
+                                        decoration: const BoxDecoration(
+                                          borderRadius: BorderRadius.all(Radius.circular(30)),
+                                          color: Color.fromRGBO(255, 255, 255, 1.0),
+                                        ),
+                                        child: const Text("Ivan",
+                                          style: TextStyle(
+                                              color: Color.fromRGBO(63, 61, 86, 1.0),
+                                              fontWeight: FontWeight.w700,
+                                              fontSize: 23
+                                          ),
+                                        ) ,
+                                      )
+                                    ],
+                                  )
+
+
+
+                                ],
+                              ),
                             ),
 
                           ],
@@ -109,15 +131,15 @@ class _VistaPrincipalClienteState extends State<VistaPrincipalCliente> {
 
             //Contenido Principal
             Container(
-              padding: const EdgeInsets.symmetric( vertical: 20, horizontal: 5 ),
-              margin: const EdgeInsets.only( left: 20 ),
               child: Column(
                 children: <Widget> [
                   Container(
-                   child: Column(
-                     children: <Widget> [
-                       const Row(
-                         children: [
+                    padding: const EdgeInsets.symmetric( vertical: 10, horizontal: 5 ),
+                    margin: const EdgeInsets.only( left: 20 ),
+                    child: Column(
+                      children: <Widget> [
+                        const Row(
+                          children: [
                            Text("Mas opciones",
                              style: TextStyle(
                                color: Color.fromRGBO(197, 172, 150, 1.0),
@@ -162,17 +184,144 @@ class _VistaPrincipalClienteState extends State<VistaPrincipalCliente> {
                    ),
                   ),
                   Container(
-                    child: Column(
+                    margin: const EdgeInsets.only( top: 10 ),
+                    child: const Column(
                       children: <Widget> [
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget> [
-                            Text("data"),
+                            Column(
+                              children: <Widget> [
+                                Row(
+                                  children: [
+                                    Text("Mis\nOpciones",
+                                      style: TextStyle(
+                                        color: Color.fromRGBO(65, 90, 119, 1.0),
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 30,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Image(
+                                image: AssetImage("assets/img/vistaPrincipalMisOpciones.png")
+                            )
 
                           ],
                         )
                       ],
                     ),
                   ),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    margin: const EdgeInsets.only( top: 15, left: 15, right: 15 ),
+                    padding: const EdgeInsets.symmetric( vertical: 15 ),
+                    decoration: const BoxDecoration(
+                      color: Color.fromRGBO(241, 241, 241, 1.0),
+                      borderRadius: BorderRadius.all(Radius.circular(10))
+                    ),
+                    child: Column(
+                      children: <Widget> [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: <Widget> [
+                              Boton(
+                                "Buscar",
+                                const Icon(
+                                  Icons.search,
+                                  color: Color.fromRGBO( 106, 198, 242, 1.0),
+                                  size: 35,
+                                ),
+                                context,
+                                  const ClienteBuscarProducto()
+                              ),
+                              Boton(
+                                // Nombre de boton
+                                "Mi carrito",
+                                // icono
+                                const Icon(
+                                  Icons.shopping_cart,
+                                color: Color.fromRGBO( 106, 198, 242, 1.0),
+                                size: 35,
+                                ),
+                                // Contexto
+                                context,
+                                // Redireccionamiento
+                                const ClienteCarrito()
+                              )
+                            ]
+                        ),
+
+
+                        const SizedBox(
+                          height: 15,
+                        ),
+
+
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: <Widget> [
+                              Boton(
+                                "Recomendados",
+                                const Icon(
+                                  Icons.list_alt,
+                                  color: Color.fromRGBO( 106, 198, 242, 1.0),
+                                  size: 35,
+                                ),
+                                context,
+                                InicioSesionVendedor()
+                              ),
+                              Boton(
+                                "Ofertas",
+                                  const Icon(
+                                    Icons.sell,
+                                    color: Color.fromRGBO( 106, 198, 242, 1.0),
+                                    size: 35,
+                                  ),
+                                context,
+                                VistaPrincipal()
+                              ),
+                            ]
+                        ),
+
+                        const SizedBox(
+                          height: 15,
+                        ),
+
+
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: <Widget> [
+                              Boton(
+                                "Categorias",
+                                  const Icon(
+                                    Icons.category,
+                                    color: Color.fromRGBO( 106, 198, 242, 1.0),
+                                    size: 35,
+                                  ),
+                                context,
+                                  InicioSesionCliente()
+                              ),
+                              Boton(
+                                "Tiendas",
+                                const Icon(
+                                  Icons.store_mall_directory,
+                                  color: Color.fromRGBO( 106, 198, 242, 1.0),
+                                  size: 35,
+                                ),
+                                context,
+                                  InicioSesionCliente()
+                              )
+                            ]
+                        )
+                      ],
+                    ),
+                  )
                 ],
               ),
             )
@@ -183,3 +332,57 @@ class _VistaPrincipalClienteState extends State<VistaPrincipalCliente> {
   }
 }
 
+Widget Botones() {
+  return GridView.builder(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount (
+          crossAxisCount: 3,
+          crossAxisSpacing: 15,
+          mainAxisSpacing: 15
+      ),
+      itemCount: 1,
+      scrollDirection: Axis.vertical,
+      shrinkWrap: true,
+      itemBuilder: ( context, index ){
+        return Container(
+        );
+      }
+  );
+}
+
+Widget Boton( String text, Icon icon, BuildContext context, Widget route ){
+  return Container(
+    width: 160,
+    decoration: BoxDecoration(
+      color: Colors.transparent,
+      borderRadius: const BorderRadius.all( Radius.circular(15) ),
+      border: Border.all( color: const Color.fromRGBO(106, 198, 242, 1.0), width: 2 )
+    ),
+    child: OutlinedButton(
+          onPressed: (){
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => route ),
+            );
+          },
+          style: TextButton.styleFrom(
+            backgroundColor: Colors.transparent,
+            padding: const EdgeInsets.symmetric( vertical: 10 ),
+            side: const BorderSide(
+              color: Colors.transparent,
+            ),
+          ),
+          child: Column(
+            children: <Widget> [
+              icon,
+              Text( text,
+                  style: const TextStyle(
+                    color: Color.fromRGBO(65, 90, 119, 1.0),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700
+                  ),
+              )
+            ],
+          )
+    ),
+  );
+}

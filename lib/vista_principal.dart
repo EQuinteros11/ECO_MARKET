@@ -9,10 +9,10 @@ class VistaPrincipal extends StatefulWidget {
   const VistaPrincipal({super.key});
 
   @override
-  State<VistaPrincipal> createState() => _pruebaState();
+  State<VistaPrincipal> createState() => _VistaPrincipalState();
 }
 
-class _pruebaState extends State<VistaPrincipal> {
+class _VistaPrincipalState extends State<VistaPrincipal> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

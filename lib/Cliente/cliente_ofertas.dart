@@ -51,11 +51,11 @@ class _ClienteOfertasState extends State<ClienteOfertas> {
                         mainAxisSpacing: 0.1,
                         childAspectRatio: 0.700,
                         children: <Widget>[
-                          _ComidaItem('Banano',25,'La cachada','assets/imagenescliente/uno.png'),
-                          _ComidaItem('Naránja',25,'the best','assets/imagenescliente/dos.png'),
+                          _ComidaItem('Banano',30,'Tienda ETK','assets/imagenescliente/uno.png'),
+                          _ComidaItem('Naránja',25,'The Best','assets/imagenescliente/dos.png'),
                           _ComidaItem('kiwi',25,'Dchoto','assets/imagenescliente/tres.png'),
-                          _ComidaItem('Manzanas',25,'La doña','assets/imagenescliente/cuatro.png'),
-                          _ComidaItem('Aguacate',25,'Mirada','assets/imagenescliente/cinco.png'),
+                          _ComidaItem('Manzanas',25,'La Doña','assets/imagenescliente/cuatro.png'),
+                          _ComidaItem('Aguacate',25,'Tienda ETK','assets/imagenescliente/cinco.png'),
                           _ComidaItem('Cilantro',25,'OfertaVis','assets/imagenescliente/seis.jpg'),
                         ],
 
@@ -74,21 +74,21 @@ class _ClienteOfertasState extends State<ClienteOfertas> {
   Widget _ComidaItem(String nombre, int precio,String tienda, String imagen){
     return Padding(padding: EdgeInsets.all(3.0),
       child: Container(
-        child: new Card(
+        child: Card(
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15.0)
           ),
-          color: Color(0xFFE6E4EB),
+          color: const Color(0xFFE6E4EB),
           elevation: 5,
-          child: new Column(
+          child: Column(
             children: <Widget> [
-              new Hero(
+              Hero(
                 tag: imagen,
-                child: new Material(
+                child: Material(
                   color:  Color(0xFFE6E4EB),
                   child: InkWell(
                     onTap: ()=> Navigator.of(context).push(
-                      new MaterialPageRoute(
+                      MaterialPageRoute(
                         builder: (context)=>DetallePagina(
                           nombre: nombre,
                           precio: precio,
@@ -97,32 +97,32 @@ class _ClienteOfertasState extends State<ClienteOfertas> {
                         ),
                       ),
                     ),
-                    child: new Image.asset(
+                    child: Image.asset(
                       imagen, fit: BoxFit.contain,
                       width:130, height: 130,
                     ),
                   ),
                 ),
               ),
-              Padding(padding: EdgeInsets.all(3.0),),
+              const Padding(padding: EdgeInsets.all(3.0),),
               Text(tienda,
-                style: new TextStyle(
+                style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20.0,
                     color: Colors.black
                 ),
               ),
-              Padding(padding: EdgeInsets.all(3.0),),
+              const Padding(padding: EdgeInsets.all(3.0),),
               Text(nombre,
-                style: new TextStyle(
+                style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20.0,
                     color: Colors.black
                 ),
               ),
-              Padding(padding: EdgeInsets.all(3.0),),
+              const Padding(padding: EdgeInsets.all(3.0),),
               Text(precio.toString(),
-                style: new TextStyle(
+                style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20.0,
                     color: Colors.black

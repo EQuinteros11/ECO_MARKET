@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../navbar.dart';
+
 class DetallePagina extends StatefulWidget {
   final nombre;
   final precio;
@@ -40,27 +42,33 @@ class _DetallePaginaState extends State<DetallePagina> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: NavBar(),
       appBar: AppBar(
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.restaurant_menu),
-            onPressed: () {},
+            icon: Icon(Icons.close),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
             color: Colors.white,
           )
         ],
         title: Text(
           "Detalle",
           style: new TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 14.0, color: Colors.black),
+              fontWeight: FontWeight.bold,
+              fontSize: 14.0,
+              color: Colors.white),
         ),
         centerTitle: true,
-        leading: IconButton(
+        /*leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.of(context).pop();
-          },
-        ),
-        backgroundColor: Colors.cyanAccent,
+          }
+        ),*/
+        backgroundColor: Colors.indigoAccent,
+        foregroundColor: const Color.fromRGBO(65, 90, 119, 1.0),
       ),
       body: Container(
         decoration: const BoxDecoration(

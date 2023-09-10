@@ -40,7 +40,6 @@ class _DetallePaginaState extends State<DetallePagina> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.purpleAccent,
       appBar: AppBar(
         actions: <Widget>[
           IconButton(
@@ -61,9 +60,16 @@ class _DetallePaginaState extends State<DetallePagina> {
             Navigator.of(context).pop();
           },
         ),
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.cyanAccent,
       ),
-      body: ListView(
+      body: Container(
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/imagenescliente/VistaPrincipal.png"),
+                fit: BoxFit.cover
+            )
+        ),
+      child: ListView(
         padding: EdgeInsets.all(10.0),
         children: <Widget>[
           Stack(
@@ -251,13 +257,22 @@ class _DetallePaginaState extends State<DetallePagina> {
                           ],
 
                         ),
-                      )
+                      ),
+                     TextButton(
+
+                         onPressed: (){
+
+                         },
+                       child: Text("Comprar"),
+
+                     )
                     ],
                   )
               )
             ],
           )
         ],
+      ),
       ),
     );
   }

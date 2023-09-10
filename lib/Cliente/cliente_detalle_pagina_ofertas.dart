@@ -24,8 +24,9 @@ class _DetallePaginaState extends State<DetallePagina> {
 
   void _decrementCounter() {
     setState(() {
-
-      _counter--;
+      if (_counter>0){
+        _counter--;
+      }
     });
   }
 
@@ -203,8 +204,7 @@ class _DetallePaginaState extends State<DetallePagina> {
                             new IconButton(
                                 icon: new Icon(Icons.fiber_smart_record, color: Colors.indigoAccent,),
                                 onPressed: (){
-                                  _incrementCounter();
-                                  _calcular();
+
                                 }
                             ),
                             new IconButton(

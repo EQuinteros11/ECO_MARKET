@@ -16,7 +16,7 @@ class _ClienteOfertasState extends State<ClienteOfertas> {
     return Scaffold(
       drawer: NavBar(),
       appBar: AppBar(
-        backgroundColor: Colors.indigoAccent,
+        backgroundColor: const Color.fromRGBO(157, 160, 166, 1.0),
         foregroundColor: const Color.fromRGBO(65, 90, 119, 1.0),
       ),
       body: Container(

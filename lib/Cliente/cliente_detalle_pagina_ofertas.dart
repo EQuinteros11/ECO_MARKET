@@ -54,9 +54,9 @@ class _DetallePaginaState extends State<DetallePagina> {
             color: Colors.white,
           )
         ],
-        title: Text(
+        title: const Text(
           "Detalle",
-          style: new TextStyle(
+          style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 14.0,
               color: Colors.white),
@@ -68,7 +68,7 @@ class _DetallePaginaState extends State<DetallePagina> {
             Navigator.of(context).pop();
           }
         ),*/
-        backgroundColor: Colors.indigoAccent,
+        backgroundColor: const Color.fromRGBO(197, 172, 150, 1.0),
         foregroundColor: const Color.fromRGBO(65, 90, 119, 1.0),
       ),
       body: Container(

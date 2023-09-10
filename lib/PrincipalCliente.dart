@@ -26,15 +26,16 @@ class _VistaPrincipalClienteState extends State<VistaPrincipalCliente> {
       home: Scaffold(
         drawer: const NavBar(),
         appBar: AppBar(
-          backgroundColor: Colors.indigoAccent,
+          backgroundColor: const Color.fromRGBO(157, 160, 166, 1.0),
           foregroundColor: const Color.fromRGBO(65, 90, 119, 1.0),
+          elevation: 0,
         ),
         body: SingleChildScrollView(
           child: Column(
             children: [
               // Hero
               Container(
-                height: 260,
+                height: 175,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                   image: AssetImage("assets/img/vistaPrincipal.png"),
@@ -43,9 +44,11 @@ class _VistaPrincipalClienteState extends State<VistaPrincipalCliente> {
 
                 ),
                 child: Container(
-                  padding: const EdgeInsets.symmetric( vertical: 30, horizontal: 15 ),
+                  padding: const EdgeInsets.symmetric( vertical: 25, horizontal: 15 ),
                   child: Column(
                     children: <Widget> [
+
+                      /*
                       Column(
                         children: [
                           Row(
@@ -66,6 +69,8 @@ class _VistaPrincipalClienteState extends State<VistaPrincipalCliente> {
                           ),
                         ],
                       ),
+
+                      */
                       Column(
                         children: [
                           Row(
@@ -144,7 +149,7 @@ class _VistaPrincipalClienteState extends State<VistaPrincipalCliente> {
                 child: Column(
                   children: <Widget> [
                     Container(
-                      padding: const EdgeInsets.symmetric( vertical: 10, horizontal: 5 ),
+                      padding: const EdgeInsets.symmetric( vertical: 20, horizontal: 5 ),
                       margin: const EdgeInsets.only( left: 20 ),
                       child: Column(
                         children: <Widget> [

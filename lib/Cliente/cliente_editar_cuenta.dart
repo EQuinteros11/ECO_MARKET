@@ -30,7 +30,7 @@ class _UpdateClienteState extends State<UpdateCliente> {
     return Container(
       decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("assets/img/editarCuentaCliente.png"),
+              image: AssetImage("assets/img/creacionCuentaCliente.png"),
               fit: BoxFit.cover
           )
       ),

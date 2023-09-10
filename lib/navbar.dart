@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uno/Cliente/cliente_editar_cuenta.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({super.key});
@@ -25,7 +26,7 @@ class NavBar extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.account_circle, color: Colors.orange, size: 30.0),
             title: const Text('Perfil'),
-            onTap: () => print('Profile tapped'),
+            onTap: () => Navigator.push( context, MaterialPageRoute(builder: (context) => const UpdateCliente() )),
           ),
           ListTile(
             leading: const Icon(Icons.shopping_cart, color: Colors.cyan, size: 30.0),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:uno/inicio_sesion_cliente.dart';
+import 'package:uno/Cliente/inicio_sesion_cliente.dart';
 import 'package:intl/intl.dart';
 
 

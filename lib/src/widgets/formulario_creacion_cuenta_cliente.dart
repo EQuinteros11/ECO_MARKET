@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
-import '../../inicio_sesion_cliente.dart';
+import '../../Cliente/inicio_sesion_cliente.dart';
 
 class FormularioCuentaCliente extends StatefulWidget {
   const FormularioCuentaCliente({super.key});

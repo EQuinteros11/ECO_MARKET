@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
-import 'package:uno/inicio_sesion_cliente.dart';
-import 'package:uno/creacion_cuenta_cliente.dart';
+import 'package:uno/Cliente/inicio_sesion_cliente.dart';
+import 'package:uno/Cliente/creacion_cuenta_cliente.dart';
 import 'package:uno/seleccion_creacion_tipo_cuenta.dart';
 
 

@@ -4,7 +4,8 @@ import 'package:uno/Cliente/cliente_buscar_producto.dart';
 import 'package:uno/Cliente/cliente_carrito.dart';
 import 'package:uno/Cliente/cliente_ofertas.dart';
 import 'package:uno/Cliente/cliente_recomendaciones.dart';
-import 'package:uno/inicio_sesion_cliente.dart';
+import 'package:uno/Cliente/cliente_tiendas.dart';
+import 'package:uno/Cliente/inicio_sesion_cliente.dart';
 import 'package:uno/inicio_sesion_vendedor.dart';
 import 'package:uno/navbar.dart';
 import 'package:uno/seleccion_creacion_tipo_cuenta.dart';
@@ -35,7 +36,7 @@ class _VistaPrincipalClienteState extends State<VistaPrincipalCliente> {
             children: [
               // Hero
               Container(
-                height: 175,
+                height: 165,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                   image: AssetImage("assets/img/vistaPrincipal.png"),
@@ -330,7 +331,7 @@ class _VistaPrincipalClienteState extends State<VistaPrincipalCliente> {
                                     size: 35,
                                   ),
                                   context,
-                                    const InicioSesionCliente()
+                                    const ClienteListadoTiendas()
                                 )
                               ]
                           )

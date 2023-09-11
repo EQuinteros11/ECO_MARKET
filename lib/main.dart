@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:uno/PrincipalCliente.dart';
+import 'package:uno/Cliente/PrincipalCliente.dart';
 import 'package:uno/creacion_cuenta_vendedor.dart';
 import 'package:uno/seleccion_creacion_tipo_cuenta.dart';
 import 'package:uno/vista_principal.dart';
 
-import 'inicio_sesion_cliente.dart';
+import 'Cliente/inicio_sesion_cliente.dart';
 import 'inicio_sesion_vendedor.dart';
 
 void main() => runApp(MyApp());

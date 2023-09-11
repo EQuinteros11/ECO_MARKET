@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:uno/PrincipalCliente.dart';
+import 'package:uno/Cliente/PrincipalCliente.dart';
 import 'package:uno/inicio_sesion_vendedor.dart';
 
 class MyAppForm extends StatefulWidget {

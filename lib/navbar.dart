@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:uno/Cliente/PrincipalCliente.dart';
+import 'package:uno/Cliente/cliente_carrito.dart';
 import 'package:uno/Cliente/cliente_editar_cuenta.dart';
 
 class NavBar extends StatelessWidget {
@@ -24,14 +26,19 @@ class NavBar extends StatelessWidget {
             ),
           ),
           ListTile(
+            leading: const Icon(Icons.home, color: Color.fromRGBO(73, 80, 91, 1.0), size: 30.0),
+            title: const Text('Pagina Principal'),
+            onTap: () => Navigator.push( context, MaterialPageRoute(builder: (context) => const VistaPrincipalCliente() )),
+          ),
+          ListTile(
             leading: const Icon(Icons.account_circle, color: Colors.orange, size: 30.0),
-            title: const Text('Perfil'),
+            title: const Text('Actualizar Perfil'),
             onTap: () => Navigator.push( context, MaterialPageRoute(builder: (context) => const UpdateCliente() )),
           ),
           ListTile(
             leading: const Icon(Icons.shopping_cart, color: Colors.cyan, size: 30.0),
             title: const Text('Mis Compras'),
-            onTap: () => print('Shopping_Cart tapped'),
+            onTap: () => Navigator.push( context, MaterialPageRoute(builder: (context) => const ClienteCarrito() )),
           ),
           ListTile(
             leading: const Icon(Icons.add_business_rounded, color: Colors.green, size: 30.0),
@@ -70,5 +77,15 @@ class NavBar extends StatelessWidget {
       ),
     );
   }
-
 }
+
+/*
+void _confirmacionCerrarSesion( BuildContext context ){
+  showDialog(
+    barrierDismissible: false,
+    context: context,
+    ch
+
+  );
+}
+*/

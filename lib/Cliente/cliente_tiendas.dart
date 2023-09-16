@@ -15,11 +15,12 @@ class _ClienteListadoTiendasState extends State<ClienteListadoTiendas> {
   void initState(){
     super.initState();
     cardItems = [
-      CardItem(nombre: "nombre", direccion: "direccion", telefono: "telefono", imagen: "assets/img/vistaPrincipal.png"),
-      CardItem(nombre: "nombre", direccion: "direccion", telefono: "telefono", imagen: "assets/img/vistaPrincipal.png"),
-      CardItem(nombre: "nombre", direccion: "direccion", telefono: "telefono", imagen: "assets/img/vistaPrincipal.png"),
-      CardItem(nombre: "nombre", direccion: "direccion", telefono: "telefono", imagen: "assets/img/vistaPrincipal.png"),
-      CardItem(nombre: "nombre", direccion: "direccion", telefono: "telefono", imagen: "assets/img/vistaPrincipal.png"),
+      CardItem(nombre: "Juancho", direccion: "direccion", telefono: "telefono", imagen: "assets/img/logoSplash.png"),
+      CardItem(nombre: "Pedro", direccion: "direccion", telefono: "telefono", imagen: "assets/img/logoSplash.png"),
+      CardItem(nombre: "Jose", direccion: "direccion", telefono: "telefono", imagen: "assets/img/logoSplash.png"),
+      CardItem(nombre: "Luis", direccion: "direccion", telefono: "telefono", imagen: "assets/img/logoSplash.png"),
+      CardItem(nombre: "Carlos", direccion: "direccion", telefono: "telefono", imagen: "assets/img/logoSplash.png"),
+      CardItem(nombre: "Mario", direccion: "direccion", telefono: "telefono", imagen: "assets/img/logoSplash.png"),
     ];
   }
 
@@ -57,14 +58,22 @@ class _ClienteListadoTiendasState extends State<ClienteListadoTiendas> {
               ),
             ),
 
-            Expanded(
-                child: GridView.count(crossAxisCount: 2,
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                  children: cardItems.map((cardItem) {
-                  return buildCard(cardItem);
-                  }).toList(),
-                )
+            Container(
+              padding: const EdgeInsets.symmetric( horizontal: 15 ),
+              child: Expanded(
+                  child: GridView.count(
+                    crossAxisCount: 1,
+                    childAspectRatio: ( 3.0 ),
+                    crossAxisSpacing: 15,
+                    mainAxisSpacing: 15,
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+
+                    children: cardItems.map(( cardItem ) {
+                    return buildCard( cardItem );
+                    }).toList(),
+                  )
+              ),
             )
           ],
         ),
@@ -72,6 +81,7 @@ class _ClienteListadoTiendasState extends State<ClienteListadoTiendas> {
     );
   }
 
+  /*
   Widget buildCard( CardItem cardItem ){
     return Card(
       child: Column(
@@ -109,7 +119,55 @@ class _ClienteListadoTiendasState extends State<ClienteListadoTiendas> {
       ),
     );
   }
+  */
+
+
+  Widget buildCard( CardItem cardItem ){
+    return Card(
+      clipBehavior: Clip.none,
+      /* decoration: BoxDecoration(
+      border: Border.all( color: Colors.deepOrange, width: 2 ),
+      borderRadius: const BorderRadius.all( Radius.circular( 15 ) ),
+    ), */
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                width: 100,
+                height: 100,
+                child: Image.asset(
+                  cardItem.imagen,
+                  fit: BoxFit.cover,
+                )
+              ),
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.symmetric( horizontal: 15 ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text( cardItem.nombre ),
+                      Text( cardItem.direccion,
+                        maxLines: 2, overflow:
+                        TextOverflow.ellipsis,
+                      ),
+                      Text( cardItem.telefono )
+
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
 }
+
+
 
 class CardItem {
   final String nombre;

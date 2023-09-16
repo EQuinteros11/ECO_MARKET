@@ -54,7 +54,7 @@ flutter_native_splash:
   android: true
   ios: true
   web: false
-  color: "#78869c"
+  color: "#AFDCF2"
   background_image: "assets/img/creacionCuentaCliente.png"
   image: "assets/img/logoSplash.png"
 

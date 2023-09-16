@@ -33,6 +33,7 @@ class _CreacionCuentaVendedorState extends State<CreacionCuentaVendedor> {
           margin: const EdgeInsets.only(top: 50 ),
           padding: const EdgeInsets.only(left: 20, right: 20),
           child: SingleChildScrollView(
+            physics: const ScrollPhysics(),
             child: Column(
               children: <Widget>[
                 Row(

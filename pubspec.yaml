@@ -35,7 +35,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  flutter_native_splash: ^2.2.10+1
+
   # Firebase Depends
   firebase_core: ^2.15.1
   firebase_auth: ^4.9.0
@@ -44,6 +44,19 @@ dependencies:
   mask_text_input_formatter: ^2.5.0
   # Eta vaina no se que es
   intl: ^0.18.1
+  # Alertas
+  awesome_dialog: ^3.1.0
+  awesome_snackbar_content: ^0.1.3
+
+  flutter_native_splash: ^2.3.2
+
+flutter_native_splash:
+  android: true
+  ios: true
+  web: false
+  color: "#78869c"
+  background_image: "assets/img/creacionCuentaCliente.png"
+  image: "assets/img/logoSplash.png"
 
 dev_dependencies:
   flutter_test:
@@ -55,10 +68,6 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
-
-flutter_native_splash:
-  color: "#49505B"
-  image: "assets/img/logoSplash.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

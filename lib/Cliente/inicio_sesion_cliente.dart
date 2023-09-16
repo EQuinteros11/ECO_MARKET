@@ -3,6 +3,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:uno/Cliente/PrincipalCliente.dart';
 import 'package:uno/inicio_sesion_vendedor.dart';
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
+
 
 class MyAppForm extends StatefulWidget {
   const MyAppForm({super.key});
@@ -61,7 +63,7 @@ class _InicioSesionClienteState extends State<InicioSesionCliente> {
       user = userCredential.user;
     } on FirebaseAuthException catch ( e ) {
       if ( e.code == "user-not-found" ){
-        print("No existe");
+        print("object");
       }
     }
 
@@ -282,6 +284,16 @@ class _InicioSesionClienteState extends State<InicioSesionCliente> {
                           MaterialPageRoute(builder: (context) => const VistaPrincipalCliente()
                           )
                       );
+                    }else{
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: CustomSnackBarWidget(errorText: 'Parece que el usuario no ha sido encontrados',),
+                            behavior: SnackBarBehavior.floating,
+                            backgroundColor: Colors.transparent,
+                            elevation: 0,
+
+                          )
+                      );
                     }
 
                   },
@@ -327,6 +339,102 @@ class _InicioSesionClienteState extends State<InicioSesionCliente> {
         ),
       ),
     );
+  }
+}
+
+class CustomSnackBarWidget extends StatelessWidget {
+  const CustomSnackBarWidget({
+    super.key,
+    required this.errorText,
+  });
+
+  final String errorText;
+
+  @override
+  Widget build(BuildContext context) {
+    return
+      Stack(
+        clipBehavior: Clip.none,
+        children: [
+          Container(
+            height: 95,
+            padding: const EdgeInsets.all(16),
+            decoration: const BoxDecoration(
+                color: Color.fromRGBO(
+                    243, 151, 151, 1.0),
+                borderRadius: BorderRadius.all(Radius.circular(20))
+            ),
+            child: Row(
+              children: [
+                const SizedBox(
+                  width: 45,
+                ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text("Error!",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 0,
+                      ),
+                      Text(errorText,
+
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        maxLines: 3,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const Positioned(
+            bottom: 30,
+            left: 10,
+            child: ClipRRect(
+
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(20),
+              ),
+              child: Icon(
+                Icons.warning_amber_rounded,
+                size: 40,
+                color: Color.fromRGBO(255, 255, 255, 1.0),
+              ),
+            ),
+          ),
+          const Positioned(
+            top: -15,
+            left: 0,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Icon(
+                  Icons.circle,
+                  size: 40,
+                  color: Color.fromRGBO(218, 127, 127, 1.0),
+                ),
+                Icon(
+                  Icons.close,
+                  size: 18,
+                  color: Colors.white,
+                )
+              ],
+            ),
+          )
+        ],
+      );
   }
 }
 

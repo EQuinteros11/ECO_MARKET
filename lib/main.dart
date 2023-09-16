@@ -6,8 +6,14 @@ import 'package:uno/vista_principal.dart';
 
 import 'Cliente/inicio_sesion_cliente.dart';
 import 'inicio_sesion_vendedor.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
-void main() => runApp(MyApp());
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Future.delayed( const Duration( seconds: 3 ) );
+  FlutterNativeSplash.remove();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget{
   @override
@@ -15,7 +21,7 @@ class MyApp extends StatelessWidget{
       return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'ECO MARKET',
-        initialRoute: "vistaPrincipalCliente",
+        initialRoute: "vistaPrincipal",
         routes: <String, WidgetBuilder>{
           "vistaPrincipal": (context) => VistaPrincipal(),
           "creacionTipoCuenta": (context) => Creacion_Cuenta(),
@@ -26,7 +32,7 @@ class MyApp extends StatelessWidget{
           "vistaPrincipalCliente": (context) => VistaPrincipalCliente(),
         },
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromRGBO(73, 80, 91, 1.0)),
           useMaterial3: true,
         ),
       );

@@ -178,6 +178,10 @@ class _VistaPrincipalClienteState extends State<VistaPrincipalCliente> {
                            ],
                          ),
 
+                         SizedBox(
+                          height: 10,
+                         ),
+
                          Row(
                            children: [
                              Container(

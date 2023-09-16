@@ -16,7 +16,6 @@ class _VistaPrincipalState extends State<VistaPrincipal> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       // APPBAR
 /*
       appBar: AppBar(
@@ -39,6 +38,7 @@ class _VistaPrincipalState extends State<VistaPrincipal> {
       //Contenedor Principal
       body: SingleChildScrollView(
         child: Container(
+          clipBehavior: Clip.none,
           width: MediaQuery.of(context).size.width,
             child: Column(
               children: <Widget>[
@@ -47,7 +47,8 @@ class _VistaPrincipalState extends State<VistaPrincipal> {
                 ),
                 Container(
                   // Estilos del Contenedor
-                  padding: const EdgeInsets.only( top: 30, left: 20, right: 20),
+                  padding: const EdgeInsets.only( top: 30, left: 20, right: 20, bottom: 30),
+                  margin: EdgeInsets.only( bottom: 0 ),
                   decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only( topLeft: Radius.circular(30), topRight: Radius.circular(30) ),
                     color: Color.fromRGBO(224, 225, 221, 1.0),
@@ -143,8 +144,7 @@ class _VistaPrincipalState extends State<VistaPrincipal> {
                               fontSize: 15,
                               decoration: TextDecoration.underline,
                             ),),
-                        )
-
+                        ),
                       ],
                     ),
                   ),

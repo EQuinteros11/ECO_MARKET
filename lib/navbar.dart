@@ -3,6 +3,7 @@ import 'package:uno/Cliente/PrincipalCliente.dart';
 import 'package:uno/Cliente/cliente_carrito.dart';
 import 'package:uno/Cliente/cliente_editar_cuenta.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:uno/Cliente/cliente_recomendaciones.dart';
 import 'package:uno/vista_principal.dart';
 
 class NavBar extends StatelessWidget {
@@ -46,13 +47,13 @@ class NavBar extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.add_business_rounded, color: Colors.green, size: 30.0),
-            title: const Text('Cerca de ti'),
+            title: const Text('Recomendaciones'),
             onTap: () => print('business Rounded'),
           ),
           ListTile(
             leading: const Icon(Icons.message, color: Colors.blue, size: 30.0),
             title: const Text('Contactanos'),
-            onTap: () => print('Messages tapped'),
+            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const ClienteRecomendacion() )),
           ),
           ListTile(
             leading: const Icon(Icons.share, size: 30.0),

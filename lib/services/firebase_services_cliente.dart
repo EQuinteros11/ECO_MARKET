@@ -5,6 +5,7 @@ FirebaseFirestore db = FirebaseFirestore.instance;
 Future<List> getTiendas() async {
   List tiendas = [];
   CollectionReference collectionReferenceTiendas = db.collection('ctl_Tienda');
+  collectionReferenceTiendas.orderBy('nombre', descending: true);
 
   QuerySnapshot queryTiendas = await collectionReferenceTiendas.get();
   queryTiendas.docs.forEach( ( tienda ) {

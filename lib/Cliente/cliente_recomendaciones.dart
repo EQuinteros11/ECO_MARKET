@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:uno/Cliente/cliente_recomendaciones_detalle.dart';
-import 'package:uno/services/firebase_services.dart';
+import 'package:uno/services/firebase_services_cliente.dart';
 
 import '../navbar.dart';
 
@@ -26,58 +26,71 @@ class _ClienteRecomendacionState extends State<ClienteRecomendacion> {
           foregroundColor: const Color.fromRGBO(255, 255, 255, 1.0),
           elevation: 0,
         ),
-        body: Container(
-          padding: const EdgeInsets.symmetric( horizontal: 15, vertical: 5 ),
-          decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/img/listadoTiendasCliente.png"),
-                  fit: BoxFit.cover
-              )
-          ),
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      decoration: const BoxDecoration(
-                        color: Color.fromRGBO(255, 255, 255, 1.0),
-                        borderRadius: BorderRadius.all( Radius.circular( 50 ) )
-                      ),
-                      child: IconButton(
-                        onPressed: (){
-                          Navigator.pop(context);
-                        },
-                        style: TextButton.styleFrom(
-                            padding: const EdgeInsets.all(10),
-                            backgroundColor: const Color.fromRGBO(255, 255, 255, 1.0)
+        body: SingleChildScrollView(
+          child: Container(
+            padding: const EdgeInsets.symmetric( horizontal: 15, vertical: 5 ),
+            decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("assets/img/listadoTiendasCliente.png"),
+                    fit: BoxFit.cover
+                )
+            ),
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        decoration: const BoxDecoration(
+                          color: Color.fromRGBO(255, 255, 255, 1.0),
+                          borderRadius: BorderRadius.all( Radius.circular( 50 ) )
                         ),
-                        icon: const Icon(
-                          Icons.arrow_back,
-                          size: 25,
+                        child: IconButton(
+                          onPressed: (){
+                            Navigator.pop(context);
+                          },
+                          style: TextButton.styleFrom(
+                              padding: const EdgeInsets.all(10),
+                              backgroundColor: const Color.fromRGBO(255, 255, 255, 1.0)
+                          ),
+                          icon: const Icon(
+                            Icons.arrow_back,
+                            size: 25,
+                          ),
+                          tooltip: "Regresar",
                         ),
-                        tooltip: "Regresar",
                       ),
-                    ),
-                    const Text("Recomendaciones",
-                      style: TextStyle(
-                        color: Color.fromRGBO(255, 255, 255, 1.0),
-                        fontWeight: FontWeight.w700,
-                        fontSize: 22
+                      const Text("Recomendaciones",
+                        style: TextStyle(
+                          color: Color.fromRGBO(255, 255, 255, 1.0),
+                          fontWeight: FontWeight.w700,
+                          fontSize: 25
+                        ),
                       ),
-                    ),
-                    const SizedBox(
-                      width: 20,
-                    )
-                  ],
+                      const SizedBox(
+                        width: 25,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              Container(
-                child: listadoTiendas(),
-              ),
-            ],
+                Container(
+                  padding: const EdgeInsets.symmetric( vertical: 15 ),
+                    child: const Text("Accedes a tiendas recomendadas exclusivamente para ti!",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700
+                      ),
+
+                    )
+                ),
+                Container(
+                  child: listadoTiendas(),
+                ),
+              ],
+            ),
           ),
         ),
       )
@@ -106,7 +119,6 @@ Widget listadoTiendas() {
 
                 return InkWell(
                   onTap: (){
-                    print("Funciona >)");
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const ClienteRecomendacionDetalle() ));
                   },
                   child: Card(
@@ -130,7 +142,7 @@ Widget listadoTiendas() {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text( snapshot.data?[index]['nombre'],
+                                    Text( snapshot.data?[index]['nombre'] ?? 'Sin registro...',
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                       style: const TextStyle(
@@ -141,7 +153,7 @@ Widget listadoTiendas() {
                                     const SizedBox(
                                       height: 5,
                                     ),
-                                    Text( snapshot.data?[index]['direccion'],
+                                    Text( snapshot.data?[index]['direccion'] ?? 'Sin registro...',
                                       maxLines: 2,
                                       overflow: TextOverflow.ellipsis,
                                       style: const TextStyle(
@@ -159,7 +171,7 @@ Widget listadoTiendas() {
                                         const SizedBox(
                                           width: 5,
                                         ),
-                                        Text( snapshot.data?[index]['telefono'],
+                                        Text( snapshot.data?[index]['telefono'] ?? 'Sin registro...',
                                           maxLines: 1,
                                           overflow: TextOverflow.ellipsis,
                                           style: const TextStyle(

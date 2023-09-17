@@ -119,7 +119,9 @@ Widget listadoTiendas() {
 
                 return InkWell(
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const ClienteRecomendacionDetalle() ));
+                    String nombree = snapshot.data?[index]['nombre'] ?? 'dfvvf';
+                    print(nombree);
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const ClienteRecomendacionDetalle( nombre: 'nombree',) ));
                   },
                   child: Card(
                     clipBehavior: Clip.none,

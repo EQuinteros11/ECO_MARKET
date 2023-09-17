@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget{
       return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'ECO MARKET',
-        initialRoute: "vistaClienteRecomendacion",
+        initialRoute: "vistaPrincipal",
         routes: <String, WidgetBuilder>{
           "vistaPrincipal": (context) => VistaPrincipal(),
           "creacionTipoCuenta": (context) => Creacion_Cuenta(),

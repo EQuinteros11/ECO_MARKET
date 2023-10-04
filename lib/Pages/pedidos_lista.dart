@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/productos_model.dart';
+import '../navbar.dart';
 
 class Cart extends StatefulWidget {
   final List<ProductosModel> _cart;
@@ -47,7 +48,8 @@ class _CartState extends State<Cart> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: const Color.fromRGBO(157, 160, 166, 1.0),
+        foregroundColor: const Color.fromRGBO(65, 90, 119, 1.0),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.restaurant_menu),

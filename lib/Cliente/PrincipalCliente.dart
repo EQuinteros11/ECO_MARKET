@@ -272,7 +272,7 @@ class _VistaPrincipalClienteState extends State<VistaPrincipalCliente> {
                                   // Contexto
                                   context,
                                   // Redireccionamiento
-                                  const ClienteCarrito()
+                                  const ClienteListadoTiendas()
                                 )
                               ]
                           ),

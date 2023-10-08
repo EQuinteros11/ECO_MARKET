@@ -26,12 +26,14 @@ class _CreacionCuentaVendedorState extends State<CreacionCuentaVendedor> {
               fit: BoxFit.cover
           )
       ),
+
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Container(
           margin: const EdgeInsets.only(top: 50 ),
           padding: const EdgeInsets.only(left: 20, right: 20),
           child: SingleChildScrollView(
+            physics: const ScrollPhysics(),
             child: Column(
               children: <Widget>[
                 Row(
@@ -669,7 +671,9 @@ class _CreacionCuentaVendedorState extends State<CreacionCuentaVendedor> {
                 ),
 
                 //Espaciado final
-                SizedBox(height: 15),
+                const SizedBox(
+                    height: 15,
+                ),
               ],
             ),
           ),

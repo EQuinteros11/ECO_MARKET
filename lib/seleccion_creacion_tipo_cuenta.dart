@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:uno/creacion_cuenta_cliente.dart';
+import 'package:uno/Cliente/creacion_cuenta_cliente.dart';
 import 'package:uno/creacion_cuenta_vendedor.dart';
 
 class Creacion_Cuenta extends StatefulWidget {

@@ -11,18 +11,8 @@ class ClienteListadoTiendas extends StatefulWidget {
   State<ClienteListadoTiendas> createState() => _ClienteListadoTiendasState();
 }
 List<ProductosModel> _ListaEntidad =[
-  ProductosModel(name: "Banano sa de cv", image: "uno.png", color: "amarillo", price: 250),
-  ProductosModel(name: "Coca Cola", image: "dos.png", color: "amarillo", price: 250),
-  ProductosModel(name: "StarBucks Coffee", image: "cuatro.png", color: "amarillo", price: 250),
-  ProductosModel(name: "KFC", image: "cinco.png", color: "amarillo", price: 250)
 ];
 class _ClienteListadoTiendasState extends State<ClienteListadoTiendas> {
-
-  @override
-  void initState(){
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -17,10 +17,6 @@ List<ProductosModel> _ListaCarro =[
 ];
 
 List<ProductosModel> _ListaEntidad = [
-  ProductosModel(name: "Banano sa de cv", image: "uno.png", color: "amarillo", price: 250),
-  ProductosModel(name: "Coca Cola", image: "dos.png", color: "amarillo", price: 250),
-  ProductosModel(name: "StarBucks Coffee", image: "cuatro.png", color: "amarillo", price: 250),
-  ProductosModel(name: "KFC", image: "cinco.png", color: "amarillo", price: 250)
 ];
 
 

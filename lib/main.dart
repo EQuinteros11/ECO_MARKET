@@ -6,6 +6,7 @@ import 'package:uno/seleccion_creacion_tipo_cuenta.dart';
 import 'package:uno/vista_principal.dart';
 
 import 'Cliente/inicio_sesion_cliente.dart';
+import 'Pages/otra_pagina.dart';
 import 'inicio_sesion_vendedor.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
@@ -29,9 +30,10 @@ class MyApp extends StatelessWidget{
       return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'ECO MARKET',
-        initialRoute: "vistaPrincipal",
+        initialRoute: "vistaPrincipal1",
         routes: <String, WidgetBuilder>{
           "vistaPrincipal": (context) => VistaPrincipal(),
+          "vistaPrincipal1": (context) => OtraPagina(),
           "creacionTipoCuenta": (context) => Creacion_Cuenta(),
           "creacionCuentaCliente": (context) => Creacion_Cuenta(),
           "creacionCuentaVendedor": (context) => CreacionCuentaVendedor(),

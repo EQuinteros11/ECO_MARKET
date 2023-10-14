@@ -48,7 +48,7 @@ GridView _cuadroEmpresa(){
           onTap: ()=> Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context)=>OtraPagina(
-                nombre: item.name,
+               // nombre: item.name,
               ),
             ),
           ),

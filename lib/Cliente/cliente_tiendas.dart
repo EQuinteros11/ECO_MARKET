@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:uno/services/firebase_services.dart';
 
 import '../Pages/otra_pagina.dart';
 import '../models/productos_model.dart';
 import '../navbar.dart';
+
+//Pegamos SHA1: E3:A5:B0:36:BD:5D:D4:B2:9A:8B:10:14:C8:95:DF:BE:90:08:0F:54
 
 class ClienteListadoTiendas extends StatefulWidget {
   const ClienteListadoTiendas({super.key});
@@ -11,7 +14,9 @@ class ClienteListadoTiendas extends StatefulWidget {
   State<ClienteListadoTiendas> createState() => _ClienteListadoTiendasState();
 }
 List<ProductosModel> _ListaEntidad =[
+
 ];
+
 class _ClienteListadoTiendasState extends State<ClienteListadoTiendas> {
   @override
   Widget build(BuildContext context) {

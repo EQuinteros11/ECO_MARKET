@@ -7,6 +7,7 @@ import 'package:uno/vista_principal.dart';
 
 import 'Cliente/inicio_sesion_cliente.dart';
 import 'Pages/otra_pagina.dart';
+import 'Pages/productos.dart';
 import 'inicio_sesion_vendedor.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget{
         initialRoute: "vistaPrincipal1",
         routes: <String, WidgetBuilder>{
           "vistaPrincipal": (context) => VistaPrincipal(),
-          "vistaPrincipal1": (context) => OtraPagina(),
+          "vistaPrincipal1": (context) => productos(),
           "creacionTipoCuenta": (context) => Creacion_Cuenta(),
           "creacionCuentaCliente": (context) => Creacion_Cuenta(),
           "creacionCuentaVendedor": (context) => CreacionCuentaVendedor(),

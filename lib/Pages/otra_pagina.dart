@@ -1,18 +1,17 @@
 
-import 'dart:async';
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uno/Pages/pedidos_lista.dart';
-import 'package:uno/services/firebase_services.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 import '../models/productos_model.dart';
 import '../navbar.dart';
+import '../services/firebase_services_cliente.dart';
 
 
 class OtraPagina extends StatefulWidget {
-  const OtraPagina();
+  const OtraPagina({super.key});
 
   @override
   State<OtraPagina> createState() => _OtraPaginaState();
@@ -25,29 +24,6 @@ List<ProductosModel> _ListaEntidad = [
 
 
 class _OtraPaginaState extends State<OtraPagina> {
-  FirebaseService db = new FirebaseService();
-  late StreamSubscription<QuerySnapshot> productSub;
-
-  @override
-  void initState() {
-    super.initState();
-    productSub?.cancel();
-    productSub = db.getProductList().listen((QuerySnapshot snapshot) {
-      final List<ProductosModel> products =
-      snapshot.docs.map((documentSnapshot) =>
-          ProductosModel.fromMap(documentSnapshot.metadata as Map<String, dynamic>)).toList();
-      setState(() {
-        _ListaEntidad = products;
-      });
-    });
-
-  }
-  @override
-  void dispose() {
-    productSub?.cancel();
-    super.dispose();
-
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -130,39 +106,51 @@ class _OtraPaginaState extends State<OtraPagina> {
                         color: Colors.transparent,
                         padding: const EdgeInsets.only(left: 24, top: 48),
                         height: 350,
-                        child: ListView.builder(
-                          itemCount: _ListaEntidad.length,
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, index){
-                            return Row(
-                              children:<Widget> [
-                                Container(
-                                  height: 300,
-                                  padding: new EdgeInsets.only(left: 10.0, bottom: 10.0),
-                                  child: Card(
-                                    elevation: 7.0,
-                                    clipBehavior: Clip.antiAlias,
-                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
-                                    child: AspectRatio(
-                                      aspectRatio: 1,
-                                      child: CachedNetworkImage(imageUrl: '${_ListaEntidad[index].image}'+
-                                      'alt=media',
-                                        fit: BoxFit.cover,
-                                      placeholder: (_,__){
-                                        return Center(
-                                          child: CupertinoActivityIndicator(
-                                              radius: 15,
-                                          ),
-                                        );
-                                      },)
-                                    ),
-                                  ),
-                                )
-                              ],
 
-                            );
-                          }
+                        child:  FutureBuilder(
+                            future: getTiendas(),
+                            builder: (( context, snapshot ) {
+                              if ( snapshot.hasData ){
+                                return ListView.builder(
+                                    itemCount: snapshot.data?.length,
+                                    scrollDirection: Axis.horizontal,
+                                    itemBuilder: (context, index){
+                                      return Row(
+                                        children:<Widget> [
+                                          Container(
+                                            height: 300,
+                                            padding: new EdgeInsets.only(left: 10.0, bottom: 10.0),
+                                            child: Card(
+                                              elevation: 7.0,
+                                              clipBehavior: Clip.antiAlias,
+                                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+                                              child: AspectRatio(
+                                                  aspectRatio: 1,
+                                                  child: CachedNetworkImage(imageUrl: '${snapshot.data?[index]['img']}'+
+                                                      'alt=media',
+                                                    fit: BoxFit.cover,
+                                                    placeholder: (_,__){
+                                                      return Center(
+                                                        child: CupertinoActivityIndicator(
+                                                          radius: 15,
+                                                        ),
+                                                      );
+                                                    },)
+                                              ),
+                                            ),
+                                          )
+                                        ],
 
+                                      );
+                                    }
+
+                                );
+                              }else {
+                                return const Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                              }
+                            })
                         ),
                       )
                     ],
@@ -171,96 +159,8 @@ class _OtraPaginaState extends State<OtraPagina> {
                   SizedBox(
                     height: 5.0
                   ),
-                  Container(
-                    color: Colors.grey[300],
-                    height: MediaQuery.of(context).size.height / 1.5,
-                    //cuadro empresa
-                    child: GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-                        itemCount:  _ListaEntidad.length,
-                        itemBuilder: (context, index){
-                          final String imagen = _ListaEntidad[index].image;
-                          var item = _ListaEntidad[index];
-
-                          return Card(
-                            color: Colors.white,
-                            margin: EdgeInsets.all(10),
-                            elevation: 10,
-                            child: Stack(
-                              fit: StackFit.loose,
-                              alignment: Alignment.center,
-                              children: <Widget>[
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: <Widget>[
-                                    Expanded(child: CachedNetworkImage(imageUrl: '${_ListaEntidad[index].image}'+
-                                        'alt=media',
-                                      fit: BoxFit.cover,
-                                      placeholder: (_,__){
-                                        return Center(
-                                          child: CupertinoActivityIndicator(
-                                            radius: 15,
-                                          ),
-                                        );
-                                      },)
-                                    ),
-
-                                    Container(
-                                      child: Text('${_ListaEntidad[index].name}.toString()',
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(fontSize: 15.0,
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w900,
-                                            fontFamily: 'Raleway'),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 15,
-                                    ),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: <Widget>[
-                                        SizedBox(
-                                          height: 25,
-                                        ),
-                                        Text('${_ListaEntidad[index].price}.toString()', style: TextStyle(
-                                            fontSize: 15.0,
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w900,
-                                            fontFamily: 'Raleway'
-                                        ),),
-                                        Padding(padding: const EdgeInsets.only(right: 8.0, bottom: 8.0),
-                                            child: Align(alignment: Alignment.bottomRight,
-                                              child: GestureDetector(
-                                                child: (!_ListaCarro.contains(item))
-                                                    ? Icon(Icons.shopping_cart,
-                                                  color: Colors.green,
-                                                  size: 38,
-                                                ):
-                                                Icon(Icons.shopping_cart,
-                                                  color: Colors.red,
-                                                  size: 38,
-                                                ),
-                                                onTap: (){
-                                                  setState((){
-                                                    if(!_ListaCarro.contains(item))
-                                                      _ListaCarro.add(item);
-                                                    else
-                                                      _ListaCarro.remove(item);
-                                                  });
-                                                },
-                                              ),
-                                            )
-                                        )
-                                      ],
-                                    ),
-                                  ],
-                                )
-                              ],
-                            ),
-                          );
-
-                        }
-                    ),
+                  Container( //##### cuadro empresa
+                    child:listadoTiendas(),
                   )
                 ],
               ),
@@ -268,6 +168,107 @@ class _OtraPaginaState extends State<OtraPagina> {
           ),
         )
 
+    );
+  }
+  Widget listadoTiendas(){
+    return Container(
+        child: FutureBuilder(
+        future: getTiendas(),
+    builder: (( context, snapshot ) {
+      if ( snapshot.hasData ){
+        return GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+            itemCount: snapshot.data?.length,
+            shrinkWrap: true,
+            itemBuilder: (context, index){
+              var item = _ListaEntidad[index];
+
+              return Card(
+                color: Colors.white,
+                margin: EdgeInsets.all(10),
+                elevation: 10,
+                child: Stack(
+                  fit: StackFit.loose,
+                  alignment: Alignment.center,
+                  children: <Widget>[
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Expanded(child: CachedNetworkImage(imageUrl: '${snapshot.data?[index]['img']}'+
+                            'alt=media',
+                          fit: BoxFit.cover,
+                          placeholder: (_,__){
+                            return Center(
+                              child: CupertinoActivityIndicator(
+                                radius: 15,
+                              ),
+                            );
+                          },)
+                        ),
+
+                        Container(
+                          child: Text( snapshot.data?[index]['nombre'] ?? 'Sin registro...',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 15.0,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w900,
+                                fontFamily: 'Raleway'),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            SizedBox(
+                              height: 25,
+                            ),
+                            Text(snapshot.data?[index]['direccion'] ?? 'Sin registro...', style: TextStyle(
+                                fontSize: 15.0,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w900,
+                                fontFamily: 'Raleway'
+                            ),),
+                            Padding(padding: const EdgeInsets.only(right: 8.0, bottom: 8.0),
+                                child: Align(alignment: Alignment.bottomRight,
+                                  child: GestureDetector(
+                                    child: (!_ListaCarro.contains(item))
+                                        ? Icon(Icons.shopping_cart,
+                                      color: Colors.green,
+                                      size: 38,
+                                    ):
+                                    Icon(Icons.shopping_cart,
+                                      color: Colors.red,
+                                      size: 38,
+                                    ),
+                                    onTap: (){
+                                      setState((){
+                                        if(!_ListaCarro.contains(item))
+                                          _ListaCarro.add(item);
+                                        else
+                                          _ListaCarro.remove(item);
+                                      });
+                                    },
+                                  ),
+                                )
+                            )
+                          ],
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              );
+
+            }
+           );
+         }else {
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
+      }
+      })
+        ),
     );
   }
 
